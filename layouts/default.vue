@@ -4,11 +4,11 @@
 
     <modal :show="showModal" centered></modal>
     <navigation
-      class="hidden md:block sticky top-0 py-2 container mx-auto px-2 z-30"
+      class="hidden md:block fixed w-full top-0 inset-x-0 py-2 container justify-center px-2 z-30"
     />
-    <nuxt class="container flex-1 mx-auto px-2 mb-20 md:mb-10" />
+    <nuxt class="w-full flex-1 mx-auto" />
     <navbar class="block md:hidden fixed bottom-0 w-full" />
-    <footer-bar class="px-8 pt-10 pb-20 md:pb-10" />
+    <footer-bar class="px-8 pt-3 pb-20 md:pb-10" />
   </div>
 </template>
 <script>

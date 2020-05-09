@@ -8,7 +8,7 @@
         <div class="ml-3">
           <ul>
             <li>
-              <n-link to="/shop/create">
+              <n-link to="/">
                 {{ $t('navbar.shops') }}
               </n-link>
             </li>
