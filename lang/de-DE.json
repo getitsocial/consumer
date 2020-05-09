@@ -1,0 +1,30 @@
+{
+	"back": "Zurück",
+	"back_to_start": "Zurück zum Start",
+	"confirm": "Okay",
+	"contact_data": {
+		"facebook": "Facebook",
+		"full_address": "Vollständige Adresse",
+		"instagram": "Instagram",
+		"intro": "Geben Sie die Adresse Ihres Shops ein, damit andere wissen, wo Sie zu finden sind.",
+		"optional": "Optional",
+		"phone_number": "Telefonnummer",
+		"prefix_and_number": "Präfix und Nummer",
+		"section_name": "Kontaktdaten",
+		"website": "webseite"
+	},
+	"continue": "Fortsetzen",
+	"dismiss": "Abbrechen",
+	"lang_code": "en",
+	"navbar": {
+		"dealer": "Händler",
+		"imprint": "Impressum",
+		"privacy_policy": "Datenschutz-Bestimmungen",
+		"shop": "Geschäft",
+		"shops": "Geschäfte",
+		"terms": "Geschäftsbedingungen"
+	},
+	"shop": {
+		"settings": "die Einstellungen"
+	}
+}

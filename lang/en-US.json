@@ -1,32 +1,30 @@
 {
-  "back": "Back",
-  "back_to_start": "Back to start",
-  "confirm": "Okay",
-  "dismiss": "Abort",
-  "continue": "Continue",
-  "lang_code": "en",
-  "contact_data": {
-    "facebook": "Facebook",
-    "full_address": "Full Address",
-    "instagram": "Instagram",
-    "intro": "Enter the address of your shop so others know where to find you.",
-    "optional": "Optional",
-    "phone_number": "Phone Number",
-    "prefix_and_number": "Prefix and Number",
-    "section_name": "Contact Data",
-    "website": "Website"
-  },
-  "navbar": {
-    "shops": "Shops",
-    "dealer": "Dealer",
-    "imprint": "Imprint",
-    "privacy_policy": "Privacy Policy",
-    "shop": "Shop",
-    "terms": "Terms and conditions"
-  },
-  "shop": {
-    "settings": "Settings"
-  },
-  "toast": {
-  }
+	"back": "Back",
+	"back_to_start": "Back to start",
+	"confirm": "Okay",
+	"contact_data": {
+		"facebook": "Facebook",
+		"full_address": "Full Address",
+		"instagram": "Instagram",
+		"intro": "Enter the address of your shop so others know where to find you.",
+		"optional": "Optional",
+		"phone_number": "Phone Number",
+		"prefix_and_number": "Prefix and Number",
+		"section_name": "Contact Data",
+		"website": "Website"
+	},
+	"continue": "Continue",
+	"dismiss": "Abort",
+	"lang_code": "en",
+	"navbar": {
+		"dealer": "Dealer",
+		"imprint": "Imprint",
+		"privacy_policy": "Privacy Policy",
+		"shop": "Shop",
+		"shops": "Shops",
+		"terms": "Terms and conditions"
+	},
+	"shop": {
+		"settings": "Settings"
+	}
 }

@@ -54,6 +54,7 @@ export default {
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     VUE_APP_HERE_ID: process.env.VUE_APP_HERE_ID,
     VUE_APP_HERE_CODE: process.env.VUE_APP_HERE_CODE,
+    BUGSNAG_API_KEY: process.env.BUGSNAG_API_KEY,
   },
 
   /**
