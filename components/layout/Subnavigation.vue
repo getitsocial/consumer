@@ -49,10 +49,15 @@ export default {
       setPosition: 'setPosition',
     }),
     async selectLocation({ locationId }) {
-      const { displayPosition } = await this.$axios.$get('/api/maps/detail', {
-        params: { locationid: locationId },
-      })
-      this.setPosition(displayPosition)
+      try {
+        if (!locationId) return
+        const { displayPosition } = await this.$axios.$get('/api/maps/detail', {
+          params: { locationid: locationId },
+        })
+        this.setPosition(displayPosition)
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 }

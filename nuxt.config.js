@@ -161,6 +161,8 @@ export default {
     '@nuxtjs/device',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
     'cookie-universal-nuxt',
+    // https://github.com/skyatura/vue-geolocation-api#readme
+    'vue-geolocation-api/nuxt',
     // https://dm4t2.github.io/vue-currency-input/
     ['vue-currency-input/nuxt', { globalOptions: { currency: 'EUR' } }],
     // https://github.com/julianmar/nuxt-bugsnag#readme

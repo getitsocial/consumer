@@ -12269,6 +12269,13 @@ vue-eslint-parser@^7.0.0:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
+vue-geolocation-api@^0.1.17:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/vue-geolocation-api/-/vue-geolocation-api-0.1.17.tgz#fb1687a353d7fbb957243b7d9fee3e0dfd495e02"
+  integrity sha512-Oh4TPAccx8XkEpSf52tk/ZrLf5trY/zyo5Ugey94RXZ8SgmLoOHG9hXWPvu7lHoCIEhfOCzg4/aeAZq9Lrdvcg==
+  dependencies:
+    vue "^2.5.21"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -12366,7 +12373,7 @@ vue2-timepicker@^1.0.8:
   resolved "https://registry.yarnpkg.com/vue2-timepicker/-/vue2-timepicker-1.0.8.tgz#352b450f5d4b20ad5da5cef729f08b3b3ac89b9d"
   integrity sha512-3wtodBBbW2comZYIpqUSvwKkNqAOkJn5TZaC+SypTE/vn001a/f+f1kj1FZdHPT43R4uiD3DLzkP2Y1VDKlNgg==
 
-vue@^2.6.11:
+vue@^2.5.21, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

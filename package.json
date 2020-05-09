@@ -49,6 +49,7 @@
     "valid-url": "^1.0.9",
     "vee-validate": "^3.3.0",
     "vue-currency-input": "^1.18.2",
+    "vue-geolocation-api": "^0.1.17",
     "vue-i18n": "^8.17.4",
     "vue-timeago": "^5.1.2",
     "vue2-timepicker": "^1.0.8",

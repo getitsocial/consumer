@@ -1,28 +1,13 @@
 <template>
   <div class="bg-primary">
-    <div class="container flex flex-row">
-      <ul class="bar text-left content-end mr-auto sm:mx-0">
+    <div class="container flex flex-wrap text-sm md:text-base">
+      <ul class="bar justify-between text-left content-end">
         <li>
           <n-link to="/imprint">{{ $t('navbar.imprint') }}</n-link>
         </li>
+        <li class="text-white opacity-50">&middot;</li>
         <li>
           <n-link to="/privacy">{{ $t('navbar.privacy_policy') }}</n-link>
-        </li>
-      </ul>
-      <ul class="flex flex-col md:flex-row content-end sm:ml-auto opacity-50">
-        <li
-          v-for="el in locales"
-          :key="el.code"
-          class="ml-2 mt-2"
-          :class="{ active: el.code === locale }"
-        >
-          <a
-            href
-            class="text-info hover:text-dark"
-            @click="switchLanguage(el.code)"
-          >
-            {{ el.name }}
-          </a>
         </li>
       </ul>
       <ul class="flex flex-wrap content-end ml-auto">
@@ -50,11 +35,6 @@
           ></a>
         </li>
       </ul>
-    </div>
-    <div class="container">
-      <div class="mx-auto text-info select-none text-xs opacity-50 md:mt-5">
-        getit! © 2020
-      </div>
     </div>
   </div>
 </template>
@@ -85,10 +65,10 @@ export default {
 
 <style lang="scss" scoped>
 .bar {
-  @apply flex flex-col;
+  @apply flex;
 
   li {
-    @apply mt-2;
+    @apply mr-2;
   }
 }
 </style>

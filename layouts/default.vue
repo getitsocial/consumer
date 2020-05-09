@@ -8,7 +8,7 @@
     />
     <nuxt class="w-full flex-1 mx-auto" />
     <navbar class="block md:hidden fixed bottom-0 w-full" />
-    <footer-bar class="px-8 pt-3 pb-20 md:pb-10" />
+    <footer-bar class="px-8 pt-2 pb-18 md:pb-5 md:pt-5" />
   </div>
 </template>
 <script>

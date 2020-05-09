@@ -37,6 +37,9 @@ module.exports = {
       borderColor: (theme) => ({
         default: theme('colors.dark', 'currentColor'),
       }),
+      padding: {
+        18: '4.5rem',
+      },
     },
     customForms: (theme) => ({
       default: {

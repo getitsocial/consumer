@@ -1,6 +1,10 @@
 export const state = () => ({
   position: {
-    selectedMapPosition: {},
+    selectedMapPosition: {
+      latitude: 52.268874,
+      longitude: 10.52677,
+      zoom: 12,
+    },
   },
   locales: [
     {

@@ -41,14 +41,6 @@ export default {
     },
   },
   watch: {
-    theme(newVal, oldVal) {
-      const tiles = this.platform.getMapTileService({ type: 'base' })
-      const layer = tiles.createTileLayer('maptile', newVal, 256, 'png', {
-        style: 'default',
-        lg: 'VIE',
-      })
-      this.map.setBaseLayer(layer)
-    },
     position({ latitude, longitude }) {
       this.map.setCenter({ lat: latitude, lng: longitude })
     },
@@ -70,29 +62,46 @@ export default {
       center: coordinates,
     })
 
-    this.map.addLayer(defaultLayers.venues)
-    const mapTileService = this.$herePlatform().getMapTileService({
-      type: 'base',
+    // creates a group that contains all places shown
+    const group = new window.H.map.Group()
+    /**
+     * This function will be called for crating marker with based on passed place position.
+     *
+     * @param  {Object} placeLink    A JSONP object representing the place link
+     * @param  {H.map.Icon} icon     svg representation of marker
+     */
+    function createMarker(locationInformation, icon) {
+      const { latitude, longitude } = locationInformation.displayPosition
+      const marker = new window.H.map.Marker({ lat: latitude, lng: longitude })
+      group.addObject(marker)
+      // data is valude that marker can hold. we save whole place so we can latter get
+      // follow function when we click on it
+      return marker.setData(locationInformation)
+    }
+
+    // Add markers to the Map
+    forEach(this.points, (locationInformation) => {
+      createMarker(locationInformation)
     })
 
-    forEach(this.points, ({ displayPosition: { latitude, longitude } }) => {
-      this.map.addObject(
-        new window.H.map.Marker({ lat: latitude, lng: longitude })
-      )
-    })
+    // Add Group to Map
+    this.map.addObject(group)
 
-    const pixelRatio = window.devicePixelRatio || 1
-    const tileSize = pixelRatio === 1 ? 256 : 512
-    const ppi = pixelRatio === 1 ? undefined : 320
-    // Our layer will load tiles from the HERE Map Tile API
-    const mapLayer = mapTileService.createTileLayer(
-      'maptile',
-      'normal.day',
-      tileSize,
-      'png8',
-      { lg: 'VIE', ppi }
-    )
-    this.map.setBaseLayer(mapLayer)
+    // add 'tap' event listener, that opens info bubble, to the group
+    function addClickListener() {
+      return new Promise((resolve) => {
+        group.addEventListener(
+          'tap',
+          function (evt) {
+            console.log(window)
+            resolve(evt.target.getData())
+          },
+          false
+        )
+      })
+    }
+
+    addClickListener().then((shop) => this.returnDetails(shop))
 
     const events = this.getEvents(this.map)
     this.getBehavior(events)
@@ -116,6 +125,10 @@ export default {
     },
     getUi(map, layers) {
       return window.H.ui.UI.createDefault(map, layers)
+    },
+    returnDetails(shop) {
+      if (!shop) return
+      this.$emit('tap', shop)
     },
   },
 }
