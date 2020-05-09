@@ -49,6 +49,9 @@ export default {
       })
       this.map.setBaseLayer(layer)
     },
+    position({ latitude, longitude }) {
+      this.map.setCenter({ lat: latitude, lng: longitude })
+    },
   },
   mounted() {
     window.addEventListener('resize', () => {

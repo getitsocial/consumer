@@ -1,4 +1,7 @@
 export const state = () => ({
+  position: {
+    selectedMapPosition: {},
+  },
   locales: [
     {
       code: 'en',
@@ -13,6 +16,9 @@ export const mutations = {
     if (state.locales.find((el) => el.code === locale)) {
       state.locale = locale
     }
+  },
+  setPosition(state, position) {
+    state.position.selectedMapPosition = position
   },
 }
 

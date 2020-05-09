@@ -133,11 +133,12 @@ export default {
 
 <style lang="scss" scoped>
 .dropdown {
-  @apply bg-white shadow rounded-lg mt-1 absolute z-30;
+  @apply bg-white shadow mt-2 z-30;
   &-item {
     @apply p-3 text-sm w-full;
+    @apply transition ease-in duration-300;
     &:hover {
-      @apply bg-grey cursor-pointer;
+      @apply bg-grey cursor-pointer rounded;
     }
   }
 }
