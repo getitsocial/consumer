@@ -26,7 +26,9 @@
 	},
 	"shop": {
 		"settings": "Settings",
-		"close_text": "The shop just closed according to the opening hours."
+		"close_text": "The shop just closed according to the opening hours.",
+		"close": "Close",
+		"open": "Open"
 	},
 	"action": {
 		"call": "Call",

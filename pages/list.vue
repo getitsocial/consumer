@@ -74,13 +74,16 @@
               </div>
             </div>
             <div class="mt-4 sm:mt-0 sm:ml-6 sm:flex-shrink-0">
-              <span class="inline-flex rounded-md shadow-sm">
+              <span v-if="shop.isOpen" class="inline-flex rounded-md shadow-sm">
                 <a
                   :href="`tel:${shop.contact.phone}`"
                   class="button primary icon-r"
-                  ><icon name="phone" /> {{ $t('call') }}</a
+                  ><icon name="phone" /> {{ $t('action.call') }}</a
                 >
               </span>
+              <span v-else class="inline-flex tag tag-warning opacity-75">{{
+                $t('shop.close')
+              }}</span>
             </div>
           </div>
         </div>
