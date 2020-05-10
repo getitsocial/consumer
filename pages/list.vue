@@ -23,9 +23,17 @@
         v-scroll-reveal.reset="{ delay: 300 }"
         class="px-4 py-5 sm:p-6 shadow bg-white rounded-lg my-3 v-scroll-reveal"
       >
-        <h3 class="text-xl leading-6 font-bold text-primary">
-          {{ shop.name }}
-        </h3>
+        <div class="flex justify-between items-center">
+          <h3 class="text-xl font-bold text-primary">
+            {{ shop.name }}
+          </h3>
+          <span
+            v-if="!shop.isOpen"
+            class="text-xs bg-warning px-1 ml-1 rounded text-white"
+            >{{ $t('shop.close') }}</span
+          >
+        </div>
+
         <div v-if="shop.deliveryOptions" class="flex flex-wrap justify-start">
           <div
             v-for="(deliveryOption, index) in shop.deliveryOptions"
@@ -42,6 +50,7 @@
               Postversand
             </span>
           </div>
+          <div></div>
         </div>
         <div class="mt-5">
           <div
@@ -74,16 +83,13 @@
               </div>
             </div>
             <div class="mt-4 sm:mt-0 sm:ml-6 sm:flex-shrink-0">
-              <span v-if="shop.isOpen" class="inline-flex rounded-md shadow-sm">
+              <span class="inline-flex rounded-md shadow-sm">
                 <a
                   :href="`tel:${shop.contact.phone}`"
                   class="button primary icon-r"
                   ><icon name="phone" /> {{ $t('action.call') }}</a
                 >
               </span>
-              <span v-else class="inline-flex tag tag-warning opacity-75">{{
-                $t('shop.close')
-              }}</span>
             </div>
           </div>
         </div>

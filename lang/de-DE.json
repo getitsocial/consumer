@@ -26,7 +26,7 @@
 	},
 	"shop": {
 		"settings": "die Einstellungen",
-		"close_text": "Der Shop anhand den Öffnungszeiten gerade geschlossen.",
+		"close_text": "Anhand den Öffnungszeiten hat dieser Shop gerade geschlossen ist aber eventuell telefonisch erreichbar.",
 		"close": "Geschlossen",
 		"open": "Geöffnet"
 	},

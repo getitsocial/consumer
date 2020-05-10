@@ -58,7 +58,10 @@
                   <div class="flex-shrink-0 text-black">
                     <icon name="info-outline" />
                   </div>
-                  <div class="ml-3 flex-1 md:flex md:justify-between">
+                  <div
+                    v-if="!shop.isOpen"
+                    class="ml-3 flex-1 md:flex md:justify-between"
+                  >
                     <p class="text-sm leading-5 text-black">
                       {{ $t('shop.close_text') }}
                     </p>
@@ -69,10 +72,7 @@
               <slot />
             </div>
             <div class="flex">
-              <a
-                v-if="shop.isOpen"
-                :href="`tel:${shop.contact.phone}`"
-                class="button icon-r mr-4"
+              <a :href="`tel:${shop.contact.phone}`" class="button icon-r mr-4"
                 ><icon name="phone" /> {{ $t('action.call') }}</a
               >
               <button class="primary w-auto ml-auto" @click="closeModal">
