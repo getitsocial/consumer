@@ -153,6 +153,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    '@nuxtjs/markdownit',
     // Doc: https://github.com/potato4d/nuxt-client-init-module
     'nuxt-client-init-module',
     // Doc: https://axios.nuxtjs.org/usage
@@ -181,6 +183,14 @@ export default {
       },
     ],
   ],
+  /**
+   ** Markdown configuration
+   */
+  markdownit: {
+    preset: 'default',
+    breaks: true,
+    injected: true,
+  },
   /**
    ** Global Middleware configuration
    */
