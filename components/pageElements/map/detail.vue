@@ -52,13 +52,30 @@
                   </span>
                 </div>
               </div>
+
+              <div class="rounded-md bg-warning opacity-75 p-4 mt-5">
+                <div class="flex">
+                  <div class="flex-shrink-0 text-black">
+                    <icon name="info-outline" />
+                  </div>
+                  <div class="ml-3 flex-1 md:flex md:justify-between">
+                    <p class="text-sm leading-5 text-black">
+                      {{ $t('shop.close_text') }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               <slot />
             </div>
-            <div class="flex justify-between">
-              <a :href="`tel:${shop.contact.phone}`" class="button icon-r mr-4"
+            <div class="flex">
+              <a
+                v-if="shop.isOpen"
+                :href="`tel:${shop.contact.phone}`"
+                class="button icon-r mr-4"
                 ><icon name="phone" /> {{ $t('action.call') }}</a
               >
-              <button class="primary w-auto" @click="closeModal">
+              <button class="primary w-auto ml-auto" @click="closeModal">
                 {{ $t('action.close') }}
               </button>
             </div>

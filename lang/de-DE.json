@@ -25,7 +25,8 @@
 		"terms": "Geschäftsbedingungen"
 	},
 	"shop": {
-		"settings": "die Einstellungen"
+		"settings": "die Einstellungen",
+		"close_text": "Der Shop anhand den Öffnungszeiten gerade geschlossen."
 	},
 	"action": {
 		"call": "Anrufen",

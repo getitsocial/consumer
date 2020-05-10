@@ -25,7 +25,8 @@
 		"terms": "Terms and conditions"
 	},
 	"shop": {
-		"settings": "Settings"
+		"settings": "Settings",
+		"close_text": "The shop just closed according to the opening hours."
 	},
 	"action": {
 		"call": "Call",
