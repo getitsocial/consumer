@@ -45,6 +45,18 @@ export default {
     position({ latitude, longitude }) {
       this.map.setCenter({ lat: latitude, lng: longitude })
     },
+    points(shops, oldShops) {
+      // Remove old Markers
+      if (oldShops.length) {
+        this.group.removeAll()
+      }
+      // Add markers to the Map
+      forEach(shops, (locationInformation) => {
+        this.createMarker(locationInformation)
+      })
+      // Add Group to Map
+      this.map.addObject(this.group)
+    },
   },
   mounted() {
     window.addEventListener('resize', () => {
@@ -66,7 +78,6 @@ export default {
     // creates a group that contains all places shown
     this.group = new window.H.map.Group()
 
-    // Add markers to the Map
     forEach(this.points, (locationInformation) => {
       this.createMarker(locationInformation)
     })
@@ -114,6 +125,7 @@ export default {
       // follow function when we click on it
       return marker.setData(locationInformation)
     },
+
     returnDetails(evt) {
       this.$emit('tap', evt.target.getData())
     },

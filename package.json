@@ -41,8 +41,10 @@
     "here-js-api": "^1.0.11",
     "lodash": "^4.17.15",
     "lottie-web": "^5.6.8",
+    "ngeohash": "^0.6.3",
     "nuxt": "^2.12.2",
     "nuxt-bugsnag": "^4.0.1",
+    "nuxt-client-init-module": "^0.1.8",
     "redirect-ssl": "^1.4.1",
     "tiptap": "^1.27.0",
     "tiptap-extensions": "^1.29.0",
@@ -51,6 +53,7 @@
     "vue-currency-input": "^1.18.2",
     "vue-geolocation-api": "^0.1.17",
     "vue-i18n": "^8.17.4",
+    "vue-scroll-reveal": "^1.0.11",
     "vue-timeago": "^5.1.2",
     "vue2-timepicker": "^1.0.8",
     "vuex-persistedstate": "^3.0.1"

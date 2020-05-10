@@ -2,7 +2,7 @@
   <div ref="outside" class="flex flex-wrap">
     <div class="w-full">
       <div class="subnavigation">
-        <ul class="w-full">
+        <ul class="w-full flex items-center">
           <li class="w-full">
             <ValidationObserver ref="shop" v-slot="{ handleSubmit }" slim>
               <!--<form @submit.prevent="handleSubmit(updateShop)">-->
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 import Autocomplete from '~/components/elements/Autocomplete'
 
 /**
@@ -48,13 +48,17 @@ export default {
     ...mapMutations({
       setPosition: 'setPosition',
     }),
+    ...mapActions({
+      getShops: 'getShops',
+    }),
     async selectLocation({ locationId }) {
       try {
         if (!locationId) return
         const { displayPosition } = await this.$axios.$get('/api/maps/detail', {
           params: { locationid: locationId },
         })
-        this.setPosition(displayPosition)
+        this.setPosition({ ...displayPosition, gps: false })
+        await this.getShops()
       } catch (error) {
         console.log(error)
       }

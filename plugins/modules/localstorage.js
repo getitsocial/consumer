@@ -11,8 +11,8 @@ export default ({ store, isHMR }) => {
 
   window.onNuxtReady(() => {
     createPersistedState({
-      // key: 'getit',
-      // paths: ['shop', 'articles', 'categories', 'user'],
+      key: 'getit',
+      paths: ['shops', 'position'],
     })(store)
   })
 }

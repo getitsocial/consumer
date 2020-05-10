@@ -40,6 +40,9 @@ module.exports = {
       padding: {
         18: '4.5rem',
       },
+      margin: {
+        36: '9rem',
+      },
     },
     customForms: (theme) => ({
       default: {

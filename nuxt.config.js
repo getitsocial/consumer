@@ -129,7 +129,8 @@ export default {
     '~/plugins/modules/axios',
     '~/plugins/modules/i18n',
     '~/plugins/mixins/components',
-    // { src: '~/plugins/modules/localstorage', mode: 'client' },
+    { src: '~/plugins/modules/localstorage', mode: 'client' },
+    { src: '~/plugins/modules/vue-scroll-reveal', mode: 'client' },
     { src: '~/plugins/modules/timeago', mode: 'client' },
     { src: '~/plugins/modules/validation', mode: 'client' },
     { src: '~/plugins/modules/socialAuthentication', mode: 'client' },
@@ -152,6 +153,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/potato4d/nuxt-client-init-module
+    'nuxt-client-init-module',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
