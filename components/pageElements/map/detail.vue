@@ -53,15 +53,15 @@
                 </div>
               </div>
 
-              <div class="rounded-md bg-warning opacity-75 p-4 mt-5">
+              <div
+                v-if="!shop.isOpen"
+                class="rounded-md bg-warning opacity-75 p-4 mt-5"
+              >
                 <div class="flex">
                   <div class="flex-shrink-0 text-black">
                     <icon name="info-outline" />
                   </div>
-                  <div
-                    v-if="!shop.isOpen"
-                    class="ml-3 flex-1 md:flex md:justify-between"
-                  >
+                  <div class="ml-3 flex-1 md:flex md:justify-between">
                     <p class="text-sm leading-5 text-black">
                       {{ $t('shop.close_text') }}
                     </p>

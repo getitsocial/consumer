@@ -10,12 +10,11 @@
     >
       <subnavigation class="w-full" />
       <div class="ml-2 py-2 bg-white shadow rounded-lg">
-        <n-link class="button" to="/list"
-          ><icon name="list-outline" width="25" height="25"
-        /></n-link>
+        <n-link class="button" to="/list">
+          <icon name="list-outline" width="25" height="25" />
+        </n-link>
       </div>
     </div>
-
     <maps
       styling="block min-h-full w-full"
       :points="shops"

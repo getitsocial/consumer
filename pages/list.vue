@@ -32,6 +32,11 @@
             class="text-xs bg-warning px-1 ml-1 rounded text-white"
             >{{ $t('shop.close') }}</span
           >
+          <span
+            v-else
+            class="text-xs bg-success px-1 ml-1 rounded text-white"
+            >{{ $t('shop.open') }}</span
+          >
         </div>
 
         <div v-if="shop.deliveryOptions" class="flex flex-wrap justify-start">
