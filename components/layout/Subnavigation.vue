@@ -15,7 +15,7 @@
                     endpoint="maps/geocode"
                     queryname="query"
                     display-name="label"
-                    placeholder="Sesamstrasse 12"
+                    :placeholder="selectedPosition.name || 'Adresse'"
                     class="w-full"
                     @selection="selectLocation"
                   />
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions, mapState } from 'vuex'
 import Autocomplete from '~/components/elements/Autocomplete'
 
 /**
@@ -44,6 +44,11 @@ export default {
     location: {},
     userLocation: '',
   }),
+  computed: {
+    ...mapState({
+      selectedPosition: (state) => state.position.selectedMapPosition,
+    }),
+  },
   methods: {
     ...mapMutations({
       setPosition: 'setPosition',
@@ -54,10 +59,13 @@ export default {
     async selectLocation({ locationId }) {
       try {
         if (!locationId) return
-        const { displayPosition } = await this.$axios.$get('/api/maps/detail', {
+        const {
+          displayPosition,
+          address: { county },
+        } = await this.$axios.$get('/api/maps/detail', {
           params: { locationid: locationId },
         })
-        this.setPosition({ ...displayPosition, gps: false })
+        this.setPosition({ ...displayPosition, name: county })
         await this.getShops()
       } catch (error) {
         console.log(error)

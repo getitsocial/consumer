@@ -26,5 +26,9 @@
 	},
 	"shop": {
 		"settings": "die Einstellungen"
+	},
+	"action": {
+		"call": "Anrufen",
+		"close": "Schließen"
 	}
 }

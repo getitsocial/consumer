@@ -1,6 +1,6 @@
 <template>
-  <div class="container my-5">
-    <div class="max-w-3xl mx-auto" v-html="content.content" />
+  <div class="container mb-5 mt-5 md:mt-24">
+    <div class="max-w-3xl mx-auto break-words" v-html="content.content" />
   </div>
 </template>
 

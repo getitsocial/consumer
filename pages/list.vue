@@ -89,7 +89,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import Subnavigation from '~/components/layout/Subnavigation'
 export default {
   components: {
@@ -103,9 +103,6 @@ export default {
     selectedShop: {},
   }),
   computed: {
-    ...mapState({
-      selectedPosition: (state) => state.position.selectedMapPosition,
-    }),
     ...mapGetters({
       shops: 'shops',
     }),

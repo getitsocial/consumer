@@ -54,12 +54,12 @@
               </div>
               <slot />
             </div>
-            <div class="flex justify-end">
+            <div class="flex justify-between">
               <a :href="`tel:${shop.contact.phone}`" class="button icon-r mr-4"
-                ><icon name="phone" /> {{ $t('call') }}</a
+                ><icon name="phone" /> {{ $t('action.call') }}</a
               >
               <button class="primary w-auto" @click="closeModal">
-                Close
+                {{ $t('action.close') }}
               </button>
             </div>
           </div>

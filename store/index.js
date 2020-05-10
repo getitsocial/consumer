@@ -7,13 +7,17 @@ export const state = () => ({
       longitude: 10.52677,
       geohash: 'u1r3rd9r4t6',
       zoom: 12,
-      gps: false,
+      name: null,
     },
   },
   locales: [
     {
       code: 'en',
       name: 'English',
+    },
+    {
+      code: 'de',
+      name: 'German',
     },
   ],
   shops: [],
@@ -26,12 +30,13 @@ export const mutations = {
       state.locale = locale
     }
   },
-  setPosition(state, { latitude, longitude }) {
+  setPosition(state, { latitude, longitude, name }) {
     const userGeohash = geohash.encode(latitude, longitude)
     state.position.selectedMapPosition = {
       latitude,
       longitude,
       geohash: userGeohash,
+      name,
     }
   },
   setShops(state, shops) {
@@ -47,8 +52,12 @@ export const actions = {
   async nuxtServerInit({ commit, dispatch, state }, { app }) {},
 
   async nuxtClientInit({ commit }, context) {
-    const { coords } = await this.$geolocation.getCurrentPosition()
-    commit('setPosition', coords)
+    try {
+      const { coords } = await this.$geolocation.getCurrentPosition()
+      commit('setPosition', coords)
+    } catch (error) {
+      console.log(error)
+    }
   },
 
   async getShops({ commit, dispatch, state }, params) {

@@ -26,5 +26,9 @@
 	},
 	"shop": {
 		"settings": "Settings"
+	},
+	"action": {
+		"call": "Call",
+		"close": "Close"
 	}
 }
