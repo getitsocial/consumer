@@ -8,6 +8,8 @@ import 'here-js-api/scripts/mapsjs-places'
 const heremaps = new window.H.service.Platform({
   app_id: process.env.VUE_APP_HERE_ID,
   app_code: process.env.VUE_APP_HERE_CODE,
+  useHTTPS: true,
+  useCIT: true,
 })
 
 const UI = window.H.ui.UI
