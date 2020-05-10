@@ -30,6 +30,7 @@ export default {
   data: () => ({
     map: {},
     ui: {},
+    group: {},
   }),
   computed: {
     getPoligonCoordinates() {
@@ -63,45 +64,18 @@ export default {
     })
 
     // creates a group that contains all places shown
-    const group = new window.H.map.Group()
-    /**
-     * This function will be called for crating marker with based on passed place position.
-     *
-     * @param  {Object} placeLink    A JSONP object representing the place link
-     * @param  {H.map.Icon} icon     svg representation of marker
-     */
-    function createMarker(locationInformation, icon) {
-      const { latitude, longitude } = locationInformation.displayPosition
-      const marker = new window.H.map.Marker({ lat: latitude, lng: longitude })
-      group.addObject(marker)
-      // data is valude that marker can hold. we save whole place so we can latter get
-      // follow function when we click on it
-      return marker.setData(locationInformation)
-    }
+    this.group = new window.H.map.Group()
 
     // Add markers to the Map
     forEach(this.points, (locationInformation) => {
-      createMarker(locationInformation)
+      this.createMarker(locationInformation)
     })
 
     // Add Group to Map
-    this.map.addObject(group)
+    this.map.addObject(this.group)
 
     // add 'tap' event listener, that opens info bubble, to the group
-    function addClickListener() {
-      return new Promise((resolve) => {
-        group.addEventListener(
-          'tap',
-          function (evt) {
-            console.log(window)
-            resolve(evt.target.getData())
-          },
-          false
-        )
-      })
-    }
-
-    addClickListener().then((shop) => this.returnDetails(shop))
+    this.group.addEventListener('tap', this.returnDetails, false)
 
     const events = this.getEvents(this.map)
     this.getBehavior(events)
@@ -126,9 +100,22 @@ export default {
     getUi(map, layers) {
       return window.H.ui.UI.createDefault(map, layers)
     },
-    returnDetails(shop) {
-      if (!shop) return
-      this.$emit('tap', shop)
+    /**
+     * This function will be called for crating marker with based on passed place position.
+     *
+     * @param  {Object} placeLink    A JSONP object representing the place link
+     * @param  {H.map.Icon} icon     svg representation of marker
+     */
+    createMarker(locationInformation) {
+      const { latitude, longitude } = locationInformation.displayPosition
+      const marker = new window.H.map.Marker({ lat: latitude, lng: longitude })
+      this.group.addObject(marker)
+      // data is valude that marker can hold. we save whole place so we can latter get
+      // follow function when we click on it
+      return marker.setData(locationInformation)
+    },
+    returnDetails(evt) {
+      this.$emit('tap', evt.target.getData())
     },
   },
 }

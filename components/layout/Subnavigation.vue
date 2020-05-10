@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div ref="outside" class="flex flex-wrap">
     <div class="w-full">
       <div class="subnavigation">
         <ul class="w-full">

@@ -15,6 +15,7 @@
         class="form-input"
         type="text"
         autocomplete="__away"
+        :tabindex="inputIndex"
         @input="change"
         @blur="handleBlur"
       />
@@ -82,6 +83,7 @@ export default {
   },
   data: () => ({
     open: false,
+    inputIndex: 0,
     selection: {
       name: null,
     },
@@ -113,7 +115,7 @@ export default {
           : null
       )
       this.list = rows
-    }, 750),
+    }, 500),
 
     // When one of the suggestion is clicked
     suggestionClick(selection) {
@@ -126,6 +128,8 @@ export default {
     handleBlur: debounce(function () {
       this.open = false
       if (!this.selection[this.displayName]) return this.$emit('selection', {})
+      // Hide Keyboard
+      this.$refs.inputValue.blur()
     }, 200),
   },
 }
