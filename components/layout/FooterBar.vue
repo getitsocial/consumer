@@ -1,13 +1,17 @@
 <template>
-  <div class="bg-primary">
+  <div class="bg-white">
     <div class="container flex flex-wrap text-sm md:text-base">
       <ul class="bar justify-between text-left content-end">
         <li>
-          <n-link to="/imprint">{{ $t('navbar.imprint') }}</n-link>
+          <n-link to="/imprint" class="text-primary hover:text-info">{{
+            $t('navbar.imprint')
+          }}</n-link>
         </li>
         <li class="text-white opacity-50">&middot;</li>
         <li>
-          <n-link to="/privacy">{{ $t('navbar.privacy_policy') }}</n-link>
+          <n-link to="/privacy" class="text-primary hover:text-info">{{
+            $t('navbar.privacy_policy')
+          }}</n-link>
         </li>
       </ul>
       <ul class="flex flex-wrap content-end ml-auto">

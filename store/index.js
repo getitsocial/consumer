@@ -62,7 +62,6 @@ export const actions = {
   },
 
   async getShops({ commit, dispatch, state }) {
-    console.log('getShops')
     const { position } = state
     const { geohash, zoom } = position?.selectedMapPosition
     const shops = await this.$axios.$get(`/api/shops/near/${geohash}`, {
