@@ -6,10 +6,10 @@
       @click="closeModal"
       @keyup.esc="closeModal"
     ></div>
-    <transition name="modalAnimation" class="modal">
-      <div v-show="show" class="modal-wrapper">
+    <transition name="modalAnimation">
+      <div v-show="show" class="modal-wrapper bg-danger">
         <div class="modal">
-          <shop-card :shop="shop" class="mx-2"
+          <shop-card :shop="shop" class="mx-2 w-full max-w-md"
             ><div class="flex justify-end">
               <button @click="closeModal">
                 <icon name="close-outline" />
@@ -84,6 +84,7 @@ export default {
 
 .modal {
   @apply h-screen w-full absolute flex flex-col items-center justify-center;
+
   &-wrapper {
     @apply z-50 fixed top-0 left-0 bottom-0 right-0 bg-transparent shadow;
   }
@@ -92,6 +93,7 @@ export default {
   }
   &-body {
     @apply bg-white m-3 max-h-full text-secondary rounded-lg;
+    width: 40rem;
   }
 }
 </style>
