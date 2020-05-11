@@ -113,7 +113,7 @@ export default {
    */
   webfontloader: {
     google: {
-      families: ['Nunito:300,400,500,600,700'],
+      families: ['Muli:wght@300;400;500;600;700&display=swap'],
     },
   },
 
@@ -153,6 +153,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/Developmint/nuxt-webfontloader#readme
+    'nuxt-webfontloader',
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/markdownit
     '@nuxtjs/markdownit',
     // Doc: https://github.com/potato4d/nuxt-client-init-module

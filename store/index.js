@@ -30,11 +30,12 @@ export const mutations = {
       state.locale = locale
     }
   },
-  setPosition(state, { latitude, longitude, name }) {
+  setPosition(state, { latitude, longitude, name, zoom }) {
     const userGeohash = geohash.encode(latitude, longitude)
     state.position.selectedMapPosition = {
       latitude,
       longitude,
+      zoom,
       geohash: userGeohash,
       name,
     }
@@ -60,14 +61,13 @@ export const actions = {
     }
   },
 
-  async getShops({ commit, dispatch, state }, params) {
+  async getShops({ commit, dispatch, state }) {
+    console.log('getShops')
     const { position } = state
-    const shops = await this.$axios.$get(
-      `/api/shops/near/${position?.selectedMapPosition?.geohash}`,
-      {
-        params,
-      }
-    )
+    const { geohash, zoom } = position?.selectedMapPosition
+    const shops = await this.$axios.$get(`/api/shops/near/${geohash}`, {
+      params: { zoom },
+    })
     commit('setShops', shops)
   },
 }

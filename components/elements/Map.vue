@@ -61,7 +61,11 @@ export default {
   mounted() {
     window.addEventListener('resize', () => {
       this.map.getViewPort().resize()
+      const center = this.map.getCenter()
+      console.log('center')
+      console.log(center)
     })
+
     const defaultLayers = this.$herePlatform().createDefaultLayers()
 
     const coordinates = {
@@ -73,6 +77,12 @@ export default {
     this.map = this.getMap(this.$refs.map, defaultLayers.normal.map, {
       zoom: 12,
       center: coordinates,
+    })
+
+    this.map.addEventListener('mapviewchangeend', () => {
+      const { lat, lng } = this.map.getCenter()
+      const zoom = this.map.getZoom()
+      this.returnNewPosition({ latitude: lat, longitude: lng, zoom })
     })
 
     // creates a group that contains all places shown
@@ -128,6 +138,10 @@ export default {
 
     returnDetails(evt) {
       this.$emit('tap', evt.target.getData())
+    },
+
+    returnNewPosition(position) {
+      this.$emit('position', position)
     },
   },
 }

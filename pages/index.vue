@@ -20,13 +20,15 @@
       :points="shops"
       :position="selectedPosition"
       @tap="showDetails"
+      @position="viewChanged"
     />
   </div>
 </template>
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 import Subnavigation from '~/components/layout/Subnavigation'
-import MapDetail from '~/components/pageElements/map/detail'
+import MapDetail from '~/components/pageElements/map/Detail'
+
 export default {
   components: {
     Subnavigation,
@@ -51,9 +53,20 @@ export default {
     ...mapMutations({
       setPosition: 'setPosition',
     }),
+    ...mapActions({
+      getShops: 'getShops',
+    }),
     showDetails(shop) {
       this.selectedShop = shop
       this.showDetail = true
+    },
+    async viewChanged(position) {
+      this.setPosition(position)
+      try {
+        await this.getShops()
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 }
