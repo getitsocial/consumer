@@ -25,7 +25,7 @@
 
     <div class="flex">
       <div class="w-full truncate">
-        <h3 class="text-xl font-bold text-primary truncate">
+        <h3 class="text-xl font-bold text-light truncate">
           {{ shop.name }}
         </h3>
         <div>
@@ -73,11 +73,18 @@
         <div></div>
       </div>
     </div>
-    <div class="flex mt-4">
-      <span class="inline-flex rounded-md shadow-sm">
-        <a :href="`tel:${shop.contact.phone}`" class="button primary icon-r"
+    <div class="flex mt-5 border-t">
+      <span class="inline-flex mt-5">
+        <a
+          :href="`tel:${shop.contact.phone}`"
+          class="button cta bg-tertiary icon-r"
           ><icon name="phone" /> {{ $t('action.call') }}</a
         >
+      </span>
+      <span class="inline-flex ml-auto mt-5">
+        <a :href="`/${shop.shopId}`" class="button primary icon-r">{{
+          $t('action.detail')
+        }}</a>
       </span>
     </div>
   </div>

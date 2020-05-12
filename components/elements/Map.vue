@@ -61,9 +61,6 @@ export default {
   mounted() {
     window.addEventListener('resize', () => {
       this.map.getViewPort().resize()
-      const center = this.map.getCenter()
-      console.log('center')
-      console.log(center)
     })
 
     const defaultLayers = this.$herePlatform().createDefaultLayers()
