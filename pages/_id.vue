@@ -28,7 +28,6 @@
         </div>
       </div>
     </div>
-
     <div class="flex md:ml-10 justify-end">
       <div class="flex items-center mr-auto">
         <div class="md:hidden inline-block w-full">
@@ -205,15 +204,16 @@ export default {
   data: () => ({
     iconSize: 22,
     openTab: 1,
+    appUrl: process.env.VUE_APP_URL,
   }),
   methods: {
     async shareWith() {
       const resultPara = document.querySelector('.result')
       try {
         await navigator.share({
-          title: 'MDN',
-          text: 'Learn web development on MDN!',
-          url: 'https://developer.mozilla.org',
+          title: 'get it!',
+          text: 'Schau dir diesen Shop an',
+          url: `${this.appUrl}/${this.shop.shopId}`,
         })
         resultPara.textContent = 'MDN shared successfully'
       } catch (error) {
