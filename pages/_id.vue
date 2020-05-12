@@ -10,7 +10,7 @@
       }"
     ></div>
     <div class="flex items-end md:ml-10">
-      <div class="p-2 bg-white rounded shadow-sm">
+      <div class="p-2 bg-white rounded shadow-sm" style="min-height: 7rem;">
         <img
           :src="shop.logo.url"
           alt=""

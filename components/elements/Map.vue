@@ -125,8 +125,8 @@ export default {
      * @param  {H.map.Icon} icon     svg representation of marker
      */
     createMarker(locationInformation) {
-      const appIcon = new window.H.map.Icon('/img/pin.png', {
-        size: { w: 26, h: 26 },
+      const appIcon = new window.H.map.Icon('/img/pin.svg', {
+        size: { w: 35, h: 35 },
       })
 
       const { latitude, longitude } = locationInformation.displayPosition

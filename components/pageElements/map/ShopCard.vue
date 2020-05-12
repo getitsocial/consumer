@@ -18,7 +18,7 @@
       >
       <span
         v-else
-        class="text-xs bg-success px-1 ml-1 rounded text-white select-none"
+        class="text-xs bg-success px-1 ml-1 rounded text-white ml-auto select-none"
         >{{ $t('shop.open') }}</span
       >
     </div>
