@@ -1,14 +1,9 @@
 <template>
   <div>
-    <div
-      v-show="show"
-      class="modal-bg"
-      @click="closeModal"
-      @keyup.esc="closeModal"
-    ></div>
+    <div v-show="show" class="modal-bg"></div>
     <transition name="modalAnimation">
-      <div v-show="show" class="modal-wrapper bg-danger">
-        <div class="modal">
+      <div v-show="show" class="modal-wrapper">
+        <div ref="modal" class="modal px-2">
           <shop-card :shop="shop" class="mx-2 w-full max-w-md"
             ><div class="flex justify-end">
               <button @click="closeModal">
@@ -46,6 +41,11 @@ export default {
     },
   },
   mounted() {
+    if (process.browser) {
+      window.addEventListener('keyup', (event) =>
+        event.key === 'Escape' ? this.$emit('close') : false
+      )
+    }
     this.show = true
   },
   // Hide Browser Scrollbar

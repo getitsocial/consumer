@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 md:mb-12">
+  <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 mb-12">
     <button class="cta bg-tertiary mt-3 icon-l" @click="$router.go(-1)">
       <icon name="arrow-back-outline" /> {{ $t('back') }}
     </button>
@@ -9,31 +9,39 @@
         backgroundImage: `url('${shop.picture.url}')`,
       }"
     ></div>
-    <div class="flex items-end md:ml-10">
-      <div class="p-2 bg-white rounded shadow-sm" style="min-height: 7rem;">
+    <div class="flex items-center md:ml-10 mb-2">
+      <div class="p-2 bg-white rounded shadow-sm">
         <img
           :src="shop.logo.url"
           alt=""
-          width="100"
+          class="object-center w-24"
           @error="(e) => (e.target.src = '/img/placeholder.png')"
         />
       </div>
       <div class="ml-2 select-none truncate">
-        <span class="leading-snug text-2xl">{{ shop.name }}</span>
-        <div v-if="shop.address" class="leading-none text-light">
+        <span class="text-2xl">{{ shop.name }}</span>
+        <div v-if="shop.address" class="text-light">
           {{ shop.address.city }}
+        </div>
+        <div class="hidden md:block mt-2">
+          <a :href="`tel:${shop.contact.phone}`">{{ shop.contact.phone }}</a>
         </div>
       </div>
     </div>
 
-    <div class="flex mt-3 md:ml-10 justify-end">
-      <div class="flex flex-col mr-auto">
-        <div class="w-full">
+    <div class="flex md:ml-10 justify-end">
+      <div class="flex items-center mr-auto">
+        <div class="md:hidden inline-block w-full">
           <a
             :href="`tel:${shop.contact.phone}`"
             class="button cta bg-tertiary icon-r"
             ><icon name="phone" /> {{ $t('action.call') }}</a
           >
+        </div>
+        <div v-if="$device.isMobileOrTablet" class="ml-3">
+          <button class="link" @click="shareWith">
+            <icon name="share-outline" width="28" height="28" />
+          </button>
         </div>
       </div>
       <div>
@@ -57,7 +65,7 @@
         </button>
       </div>
     </div>
-    <div class="mt-3 select-none">
+    <div class="mt-2 select-none">
       <div class="col-span-1"><!-- Todo: Opening Times here --></div>
       <div v-if="openTab === 1" class="card col-span-4">
         <div v-if="shop.deliveryOptions" class="flex flex-wrap justify-start">
@@ -86,7 +94,7 @@
           <div v-html="shop.description"></div>
         </div>
         <div v-if="shop.contact" class="flex justify-end">
-          <ul class="flex items-center">
+          <ul class="flex items-end">
             <li class="mx-2">
               <a
                 v-if="shop.contact.instagram"
@@ -129,6 +137,25 @@
       </div>
       <div v-else-if="openTab === 2">
         <div class="grid md:grid-cols-3 gap-2">
+          <div class="card text-center md:text-left select-none">
+            <div
+              v-for="(weekDay, name) in shop.openingHours"
+              :key="name"
+              class="my-2"
+            >
+              <span class="font-bold text-primary"
+                >{{ $t(`delivery_options.days_long.${name}`) }}
+              </span>
+              <div class="text-light">
+                {{ weekDay.length ? '' : 'Geschlossen' }}
+                <div v-for="(time, index) in weekDay" :key="index">
+                  <span v-if="time.allDayOpen">Ganztätig geöffnet</span>
+                  <span v-else>{{ time.open }} - {{ time.close }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="card md:col-span-2">
             <div class="flex flex-col">
               <div
@@ -152,24 +179,6 @@
                 :position="shop.displayPosition"
                 :polygon="shop.polygonCoordinates"
               />
-            </div>
-          </div>
-          <div class="card text-center md:text-left select-none">
-            <div
-              v-for="(weekDay, name) in shop.openingHours"
-              :key="name"
-              class="my-2"
-            >
-              <span class="font-bold text-primary"
-                >{{ $t(`delivery_options.days_long.${name}`) }}
-              </span>
-              <div class="text-light">
-                {{ weekDay.length ? '' : 'Geschlossen' }}
-                <div v-for="(time, index) in weekDay" :key="index">
-                  <span v-if="time.allDayOpen">Ganztätig geöffnet</span>
-                  <span v-else>{{ time.open }} - {{ time.close }}</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -197,6 +206,21 @@ export default {
     iconSize: 22,
     openTab: 1,
   }),
+  methods: {
+    async shareWith() {
+      const resultPara = document.querySelector('.result')
+      try {
+        await navigator.share({
+          title: 'MDN',
+          text: 'Learn web development on MDN!',
+          url: 'https://developer.mozilla.org',
+        })
+        resultPara.textContent = 'MDN shared successfully'
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  },
 }
 </script>
 

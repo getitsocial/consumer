@@ -82,6 +82,18 @@ export default {
       this.returnNewPosition({ latitude: lat, longitude: lng, zoom })
     })
 
+    this.map.addEventListener(
+      'pointermove',
+      (event) => {
+        if (event.target instanceof window.H.map.Marker) {
+          this.map.getViewPort().element.style.cursor = 'pointer'
+        } else {
+          this.map.getViewPort().element.style.cursor = 'auto'
+        }
+      },
+      false
+    )
+
     // creates a group that contains all places shown
     this.group = new window.H.map.Group()
 
@@ -126,7 +138,7 @@ export default {
      */
     createMarker(locationInformation) {
       const appIcon = new window.H.map.Icon('/img/pin.svg', {
-        size: { w: 35, h: 35 },
+        size: { w: 30, h: 30 },
       })
 
       const { latitude, longitude } = locationInformation.displayPosition
@@ -136,6 +148,7 @@ export default {
       )
 
       this.group.addObject(marker)
+
       // data is valude that marker can hold. we save whole place so we can latter get
       // follow function when we click on it
       return marker.setData(locationInformation)

@@ -23,7 +23,7 @@
       >
     </div>
 
-    <div class="flex">
+    <div class="flex flex-col">
       <div class="w-full truncate">
         <h3 class="text-xl font-bold text-light truncate">
           {{ shop.name }}
@@ -39,12 +39,17 @@
                   : shop.address.district
               }}
             </div>
+            <div class="hidden md:block">
+              <a :href="`tel:${shop.contact.phone}`">{{
+                shop.contact.phone
+              }}</a>
+            </div>
           </div>
         </div>
       </div>
       <div
         v-if="shop.deliveryOptions"
-        class="flex flex-col justify-start select-none mt-3 text-right"
+        class="flex flex-wrap justify-start select-none mt-3 text-right"
       >
         <div
           v-for="(deliveryOption, index) in shop.deliveryOptions"
@@ -74,7 +79,7 @@
       </div>
     </div>
     <div class="flex mt-5 border-t">
-      <span class="inline-flex mt-5">
+      <span class="md:hidden inline-flex mt-5">
         <a
           :href="`tel:${shop.contact.phone}`"
           class="button cta bg-tertiary icon-r"

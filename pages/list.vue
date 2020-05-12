@@ -20,7 +20,7 @@
       <shop-card
         v-for="shop in shops"
         :key="shop._id"
-        v-scroll-reveal.reset="{ delay: 300 }"
+        v-scroll-reveal.reset
         :shop="shop"
       />
     </div>

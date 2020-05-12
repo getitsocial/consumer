@@ -1,5 +1,5 @@
 <svg width="59" height="60" viewBox="0 0 59 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="path-1-outside-1" maskUnits="userSpaceOnUse" x="0" y="0" width="59" height="60" fill="black">
+<mask id="path-1-outside-1" class="cursor-pointer" maskUnits="userSpaceOnUse" x="0" y="0" width="59" height="60" fill="black">
 <rect fill="white" width="59" height="60"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M45.3148 49.5386C52.1969 45.2846 56.7825 37.6706 56.7825 28.9855C56.7825 17.8373 49.2271 8.45373 38.9574 5.67607C35.244 3.34681 30.8518 2 26.1449 2C12.8101 2 2 12.8101 2 26.1449C2 28.3486 2.29522 30.4833 2.84827 32.5117C2.82388 32.9564 2.81152 33.4043 2.81152 33.8551C2.81152 47.19 13.6216 58.0001 26.9565 58.0001C34.3048 58.0001 40.8864 54.7174 45.3148 49.5386Z"/>
 </mask>
