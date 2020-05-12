@@ -6,7 +6,7 @@
       @close="showDetail = false"
     />
     <div
-      class="flex items-start fixed w-full top-0 mt-3 md:mt-16 inset-x-0 py-2 container max-w-lg justify-center px-2 z-30"
+      class="flex items-start fixed w-full top-0 mt-3 md:mt-20 inset-x-0 py-2 container max-w-lg justify-center px-2 z-30"
     >
       <subnavigation class="w-full" />
       <div class="ml-2 py-2 bg-white shadow rounded-lg">

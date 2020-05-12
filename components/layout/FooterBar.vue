@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-white">
+  <div class="bg-primary">
     <div class="container flex flex-wrap text-sm md:text-base">
       <ul class="bar justify-between text-left content-end">
         <li>
-          <n-link to="/imprint" class="text-primary hover:text-info">{{
+          <n-link to="/imprint" class="text-white hover:text-tertiary">{{
             $t('navbar.imprint')
           }}</n-link>
         </li>
         <li class="text-white opacity-50">&middot;</li>
         <li>
-          <n-link to="/privacy" class="text-primary hover:text-info">{{
+          <n-link to="/privacy" class="text-white hover:text-tertiary">{{
             $t('navbar.privacy_policy')
           }}</n-link>
         </li>
@@ -19,6 +19,7 @@
           <a
             href="https://www.facebook.com/Get-It-103751584615828/"
             target="_blank"
+            class="text-white hover:text-tertiary"
             ><icon name="facebook-outline"
           /></a>
         </li>
@@ -26,6 +27,7 @@
           <a
             href="https://www.facebook.com/getit.habenbrauchenbringen/"
             target="_blank"
+            class="text-white hover:text-tertiary"
             ><svg
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"

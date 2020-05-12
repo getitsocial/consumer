@@ -128,8 +128,16 @@ export default {
      * @param  {H.map.Icon} icon     svg representation of marker
      */
     createMarker(locationInformation) {
+      const appIcon = new window.H.map.Icon('/img/pin.png', {
+        size: { w: 26, h: 26 },
+      })
+
       const { latitude, longitude } = locationInformation.displayPosition
-      const marker = new window.H.map.Marker({ lat: latitude, lng: longitude })
+      const marker = new window.H.map.Marker(
+        { lat: latitude, lng: longitude },
+        { icon: appIcon }
+      )
+
       this.group.addObject(marker)
       // data is valude that marker can hold. we save whole place so we can latter get
       // follow function when we click on it

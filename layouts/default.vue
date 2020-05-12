@@ -4,7 +4,7 @@
 
     <modal :show="showModal" centered></modal>
     <navigation
-      class="hidden md:block fixed w-full top-0 inset-x-0 py-2 container justify-center px-2 z-30"
+      class="hidden md:block fixed w-full top-0 inset-x-0 justify-center z-30"
     />
     <nuxt class="w-full flex-1 mx-auto" />
     <navbar class="block md:hidden fixed bottom-0 w-full" />

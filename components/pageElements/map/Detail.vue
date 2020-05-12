@@ -12,7 +12,7 @@
           <shop-card :shop="shop" class="mx-2 w-full max-w-md"
             ><div class="flex justify-end">
               <button @click="closeModal">
-                <icon name="close-outline" />
+                <icon name="close-outline" width="25" height="25" />
               </button></div
           ></shop-card>
         </div>
