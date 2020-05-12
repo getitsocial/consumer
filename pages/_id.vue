@@ -1,6 +1,6 @@
 <template>
-  <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-8">
-    <button class="cta bg-tertiary my-5 icon-l" @click="$router.go(-1)">
+  <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 md:mb-12">
+    <button class="cta bg-tertiary mt-3 icon-l" @click="$router.go(-1)">
       <icon name="arrow-back-outline" /> {{ $t('back') }}
     </button>
     <div
@@ -9,7 +9,7 @@
         backgroundImage: `url('${shop.picture.url}')`,
       }"
     ></div>
-    <div class="flex items-end -mt-10 md:ml-10">
+    <div class="flex items-end md:ml-10">
       <div class="p-2 bg-white rounded shadow-sm">
         <img
           :src="shop.logo.url"
@@ -18,7 +18,7 @@
           @error="(e) => (e.target.src = '/img/placeholder.png')"
         />
       </div>
-      <div class="ml-2 select-none">
+      <div class="ml-2 select-none truncate">
         <span class="leading-snug text-2xl">{{ shop.name }}</span>
         <div v-if="shop.address" class="leading-none text-light">
           {{ shop.address.city }}
