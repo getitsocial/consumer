@@ -24,8 +24,8 @@
     </div>
 
     <div class="flex">
-      <div class="w-full">
-        <h3 class="text-xl font-bold text-primary">
+      <div class="w-full truncate">
+        <h3 class="text-xl font-bold text-primary truncate">
           {{ shop.name }}
         </h3>
         <div>
