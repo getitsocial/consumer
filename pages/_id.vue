@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 mb-12">
-    <button class="cta bg-tertiary mt-3 icon-l" @click="$router.go(-1)">
+    <button class="cta bg-tertiary mt-3 icon-l" @click="$router.push('/list')">
       <icon name="arrow-back-outline" /> {{ $t('back') }}
     </button>
     <div
@@ -215,7 +215,7 @@ export default {
           text: 'Schau dir diesen Shop an',
           url: `${this.appUrl}/${this.shop.shopId}`,
         })
-        resultPara.textContent = 'MDN shared successfully'
+        resultPara.textContent = 'Geteilt!'
       } catch (error) {
         console.log(error)
       }
