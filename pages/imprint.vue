@@ -14,7 +14,7 @@ const client = createClient()
 export default {
   name: 'Imprint',
   async asyncData({ params }) {
-    const { fields } = await client.getEntry('7a1SZ1ECcC0TnVozMRKRAt')
+    const { fields } = await client.getEntry('383HaOpwTeaZpMV4nvJVTp')
     return { content: fields }
   },
   data: () => ({}),
