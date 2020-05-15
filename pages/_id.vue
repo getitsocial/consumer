@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 mb-12">
-    <button class="cta bg-tertiary mt-3 icon-l" @click="$router.push('/list')">
+    <button class="arrow-l mt-3 icon-l" @click="$router.push('/list')">
       <icon name="arrow-back-outline" /> {{ $t('back') }}
     </button>
     <div
@@ -92,6 +92,15 @@
           <hr class="my-5" />
           <div v-html="shop.description"></div>
         </div>
+        <div v-if="shop.components.length">
+          <!--
+          <hr class="my-5" />
+          <products-component
+            :shop="shop"
+            :component-name="shop.components[0]"
+            @edit="showComponent = true"
+          />
+        --></div>
         <div v-if="shop.contact" class="flex justify-end">
           <ul class="flex items-end">
             <li class="mx-2">
@@ -187,11 +196,14 @@
 </template>
 <script>
 import HereMap from '~/components/elements/MapSvg'
+// import ProductsComponent from '~/components/pageElements/shop/Products'
+
 export default {
   name: 'Shop',
   middleware: 'authenticated',
   components: {
     HereMap,
+    // ProductsComponent,
   },
   async asyncData({ $axios, params }) {
     try {
@@ -239,6 +251,19 @@ export default {
       rgba(255, 255, 255, 0),
       theme('colors.primary')
     );
+  }
+}
+
+.arrow-l {
+  .icon {
+    @apply mr-1;
+  }
+  &:hover {
+    @apply text-secondary;
+    .icon {
+      @apply transition duration-300 ease-in-out;
+      transform: translate(-0.3rem);
+    }
   }
 }
 </style>

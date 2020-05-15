@@ -6,6 +6,20 @@
 	},
 	"back": "Back",
 	"back_to_start": "Back to start",
+	"components": {
+		"menu": {
+			"create": "Create menu",
+			"name": "Menu"
+		},
+		"productlist": {
+			"create": "Create productlist",
+			"name": "Productlist"
+		},
+		"type": {
+			"menu": "Menu",
+			"products": "Products"
+		}
+	},
 	"confirm": "Okay",
 	"contact_data": {
 		"facebook": "Facebook",
