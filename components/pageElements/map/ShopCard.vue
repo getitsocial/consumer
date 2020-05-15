@@ -25,7 +25,7 @@
 
     <div class="flex flex-col">
       <div class="w-full truncate">
-        <h3 class="text-xl font-bold text-light truncate">
+        <h3 class="text-xl text-light truncate">
           {{ shop.name }}
         </h3>
         <div>
