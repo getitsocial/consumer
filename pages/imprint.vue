@@ -1,7 +1,7 @@
 <template>
   <div class="container mb-5 mt-5 md:mt-24">
     <div
-      class="max-w-3xl mx-auto break-words"
+      class="card w-full markdown-body"
       v-html="$md.render(content.content)"
     />
   </div>
