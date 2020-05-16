@@ -6,7 +6,7 @@
           <n-link to="/"><icon name="home-outline" width="20" /></n-link>
         </li>
         <li>
-          <a href="https://dealer.getit.social" class="font-bold"
+          <a :href="link" class="font-bold"
             ><span class="text-xs">
               {{ $t('navbar.dealer') }}
             </span></a
@@ -23,6 +23,23 @@
  */
 export default {
   name: 'Navbar',
+  data: () => ({
+    stage: process.env.VUE_APP_ENV,
+    link: 'https://dealer.getit.market',
+  }),
+  mounted() {
+    switch (this.stage) {
+      case 'production':
+        this.link = 'https://dealer.getit.market'
+        break
+      case 'staging':
+        this.link = 'https://getit-dealer-dev.herokuapp.com/'
+        break
+      case 'development':
+        this.link = 'http://localhost:3000'
+        break
+    }
+  },
 }
 </script>
 <style lang="scss">
