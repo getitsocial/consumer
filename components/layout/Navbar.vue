@@ -25,7 +25,7 @@ export default {
   name: 'Navbar',
   data: () => ({
     stage: process.env.VUE_APP_ENV,
-    link: 'https://dealer.getit.market',
+    link: 'https://dealer.getit.social',
   }),
   mounted() {
     switch (this.stage) {
