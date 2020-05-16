@@ -20,7 +20,7 @@
           <div class="ml-auto">
             <ul>
               <li>
-                <a :href="link">
+                <a :href="https://dealer.getit.market">
                   <span class="mr-1">{{ $t('navbar.dealer') }}</span>
                   <icon name="arrow-forward-outline" />
                 </a>
@@ -39,23 +39,7 @@
  */
 export default {
   name: 'Navigation',
-  data: () => ({
-    stage: process.env.VUE_APP_ENV,
-    link: 'https://dealer.getit.social',
-  }),
-  mounted() {
-    switch (this.stage) {
-      case 'production':
-        this.link = 'https://dealer.getit.social'
-        break
-      case 'staging':
-        this.link = 'https://getit-dealer-dev.herokuapp.com/'
-        break
-      case 'development':
-        this.link = 'http://localhost:3000'
-        break
-    }
-  },
+  data: () => ({}),
 }
 </script>
 <style lang="scss">
