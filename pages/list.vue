@@ -16,11 +16,12 @@
       </div>
     </div>
 
-    <div class="w-full max-w-lg mx-auto mt-20 md:mt-36 px-2">
+    <div class="shop-grid mt-20 md:mt-36 w-full max-w-3xl mx-auto p-2">
       <shop-card
         v-for="shop in shops"
         :key="shop._id"
         v-scroll-reveal.reset
+        class="shop-item my-1 md:my-2"
         :shop="shop"
       />
     </div>
@@ -55,4 +56,18 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.shop {
+  &-grid {
+    @apply gap-1;
+    columns: 1;
+    @screen sm {
+      @apply gap-4;
+      columns: 2;
+    }
+  }
+  &-item {
+    @apply w-full inline-block;
+  }
+}
+</style>
