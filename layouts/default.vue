@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <toast />
-
+    <CookieControl :locale="$store.state.locale" />
     <modal :show="showModal" centered></modal>
     <navigation
       class="hidden md:block fixed w-full top-0 inset-x-0 justify-center z-30"

@@ -153,6 +153,41 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // https://gitlab.com/broj42/nuxt-cookie-control#README
+    [
+      'nuxt-cookie-control',
+      {
+        controlButton: false,
+        // default colors
+        colors: {
+          barTextColor: '#fff',
+          modalOverlay: '#2F615E',
+          barBackground: '#2F615E',
+          barButtonColor: '#000000',
+          modalTextColor: '#2F615E',
+          modalBackground: '#fff',
+          modalOverlayOpacity: 0.8,
+          modalButtonColor: '#fff',
+          modalUnsavedColor: '#fff',
+          barButtonHoverColor: '#000000',
+          barButtonBackground: '#FFE55F',
+          modalButtonHoverColor: '#fff',
+          modalButtonBackground: '#2F615E',
+          controlButtonIconColor: '#2F615E',
+          controlButtonBackground: '#fff',
+          barButtonHoverBackground: '#FFC700',
+          checkboxActiveBackground: '#2F615E',
+          checkboxInactiveBackground: '#2F615E',
+          modalButtonHoverBackground: '#FFC700',
+          checkboxDisabledBackground: '#ddd',
+          controlButtonIconHoverColor: '#fff',
+          controlButtonHoverBackground: '#2F615E',
+          checkboxActiveCircleBackground: '#fff',
+          checkboxInactiveCircleBackground: '#fff',
+          checkboxDisabledCircleBackground: '#fff',
+        },
+      },
+    ],
     // Doc: https://github.com/Developmint/nuxt-webfontloader#readme
     'nuxt-webfontloader',
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/markdownit
@@ -225,5 +260,49 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+  },
+
+  cookies: {
+    necessary: [
+      {
+        // if multilanguage
+        name: {
+          en: 'Required cookies',
+          de: 'Erforderliche Cookies',
+        },
+
+        // if multilanguage
+        description: {
+          en:
+            'Required cookies help to make a website usable by enabling basic functions such as page navigation and access to secure areas of the website. The website cannot function properly without these cookies.',
+          de:
+            'Erforderliche Cookies helfen dabei, eine Website nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und Zugriff auf sichere Bereiche der Website ermöglichen. Die Website kann ohne diese Cookies nicht richtig funktionieren.',
+        },
+        // else
+        cookies: ['getit'],
+      },
+    ],
+    optional: [
+      {
+        name: 'Google Analitycs',
+        description: {
+          de:
+            'Diese Cookies werden genutzt, um Funktionen der Website zuzulassen, die Ihnen eine möglichst komfortable und auf Ihre Interessen zugeschnittene Nutzung ermöglichen. Des Weiteren hilft uns die Analyse des Nutzerverhaltens ebenfalls, die Qualität unserer Webseite fortlaufend zu verbessern.',
+          en:
+            'These cookies are used to allow functions of the website that enable you to use the website as conveniently as possible and tailored to your interests. Furthermore, the analysis of user behaviour also helps us to continuously improve the quality of our website.',
+        },
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-161423817-1',
+        async: true,
+        cookies: ['_ga', '_gat', '_gid'],
+        accepted: () => {
+          window.dataLayer = window.dataLayer || []
+          window.dataLayer.push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js',
+          })
+        },
+        declined: () => {},
+      },
+    ],
   },
 }
