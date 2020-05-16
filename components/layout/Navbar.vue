@@ -6,7 +6,7 @@
           <n-link to="/"><icon name="home-outline" width="20" /></n-link>
         </li>
         <li>
-          <a :href="https://dealer.getit.market" class="font-bold"
+          <a href="https://dealer.getit.market" class="font-bold"
             ><span class="text-xs">
               {{ $t('navbar.dealer') }}
             </span></a

@@ -20,7 +20,7 @@
           <div class="ml-auto">
             <ul>
               <li>
-                <a :href="https://dealer.getit.market">
+                <a href="https://dealer.getit.market">
                   <span class="mr-1">{{ $t('navbar.dealer') }}</span>
                   <icon name="arrow-forward-outline" />
                 </a>
