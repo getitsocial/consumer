@@ -46,7 +46,7 @@ export default {
   mounted() {
     switch (this.stage) {
       case 'production':
-        this.link = 'https://dealer.getit.market'
+        this.link = 'https://dealer.getit.social'
         break
       case 'staging':
         this.link = 'https://getit-dealer-dev.herokuapp.com/'
