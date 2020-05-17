@@ -6,6 +6,7 @@
       class="article-item border-b py-2"
     >
       <img
+        v-if="article.articlePicture"
         :src="article.picture.url"
         :alt="article.name"
         class="block mx-auto"
