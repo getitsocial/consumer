@@ -9,6 +9,7 @@
       </button>
     </div>
     <div class="card">
+      <!-- Headline -->
       <h1 v-if="shop.components" class="flex md:mb-3">
         {{ $t(`components.type.${shop.components[0]}`) }}
       </h1>
@@ -16,13 +17,13 @@
       <category-list
         :categories="categories.rows"
         :active-category="category"
-        @load="loadArticles"
+        :pending="pending"
+        @loadArticles="loadArticles"
       />
-
-      <product-list :articles="articles" />
-
-      <empty-state v-if="categories.count === 0" />
       <!-- Articles -->
+      <product-list :articles="articles" />
+      <!-- Empty State -->
+      <empty-state v-if="categories.count === 0" />
     </div>
   </div>
 </template>
@@ -39,9 +40,8 @@ export default {
     ProductList,
     CategoryList,
   },
-
   async asyncData({ $axios, query }) {
-    let categories
+    let categories, pending
     try {
       categories = await $axios.$get('/api/categories/public', {
         params: {
@@ -54,25 +54,24 @@ export default {
     } catch (error) {
       console.log(error)
     }
-
-    const {
-      count,
-      rows,
-      category,
-      shop,
-    } = await $axios.$get('/api/articles/public', { params: query })
-
-    return { count, articles: rows, shop, category, categories }
+    pending = query.category
+    const { rows, category, shop } = await $axios.$get('/api/articles/public', {
+      params: query,
+    })
+    pending = null
+    return { articles: rows, shop, category, categories, pending }
   },
   data: () => ({
     isEmpty,
+    pending: null,
     categoriesQuery: {
       page: 1,
     },
   }),
-  watchQuery: ['category'],
+  watchQuery: true,
   methods: {
     loadArticles(categoryId) {
+      this.pending = categoryId
       this.$router.push({
         query: {
           ...this.$route.query,

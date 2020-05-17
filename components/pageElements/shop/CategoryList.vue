@@ -3,8 +3,11 @@
     <div v-for="category in categories" :key="category._id" class="mt-2">
       <button
         class="border mr-2 hover:text-light"
-        :class="[category._id === activeCategory ? 'bg-tertiary' : '']"
-        @click="$emit('load', category._id)"
+        :class="[
+          category._id === activeCategory ? 'bg-tertiary' : '',
+          category._id === pending ? 'spinner-dark' : '',
+        ]"
+        @click="$emit('loadArticles', category._id)"
       >
         {{ category.name }}
       </button>
@@ -22,6 +25,10 @@ export default {
     activeCategory: {
       type: String,
       default: '',
+    },
+    pending: {
+      type: String,
+      default: null,
     },
   },
 }
