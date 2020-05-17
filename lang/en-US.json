@@ -1,94 +1,94 @@
 {
-	"action": {
-		"call": "Call",
-		"close": "Close",
-		"detail": "Detail"
-	},
-	"back": "Back",
-	"back_to_start": "Back to start",
-	"components": {
-		"menu": {
-			"create": "Create menu",
-			"name": "Menu"
-		},
-		"productlist": {
-			"create": "Create productlist",
-			"name": "Productlist"
-		},
-		"type": {
-			"menu": "Menu",
-			"products": "Products"
-		}
-	},
-	"confirm": "Okay",
-	"contact_data": {
-		"facebook": "Facebook",
-		"full_address": "Full Address",
-		"instagram": "Instagram",
-		"intro": "Enter the address of your shop so others know where to find you.",
-		"optional": "Optional",
-		"phone_number": "Phone Number",
-		"prefix_and_number": "Prefix and Number",
-		"section_name": "Contact Data",
-		"website": "Website"
-	},
-	"continue": "Continue",
-	"delivery_options": {
-		"all_day": "Open all day long",
-		"days_long": {
-			"friday": "Friday",
-			"monday": "Monday",
-			"saturday": "Saturday",
-			"sunday": "Sunday",
-			"thursday": "Thursday",
-			"tuesday": "Tuesday",
-			"wednesday": "Wednesday"
-		},
-		"days_short": {
-			"friday": "Fr",
-			"monday": "Mo",
-			"saturday": "Sa",
-			"sunday": "Su",
-			"thursday": "Th",
-			"tuesday": "Tu",
-			"wednesday": "We"
-		},
-		"offer_prefix": "I offer",
-		"offer_suffix": "",
-		"opening_times": "Opening Times",
-		"options": {
-			"local_delivery": {
-				"description": "We ensure that our customers receive their goods promptly",
-				"name": "Local Delivery"
-			},
-			"parcel": {
-				"description": "On request we also send the packages by letter and post",
-				"name": "Postal and parcel delivery"
-			},
-			"pickup": {
-				"description": "Customers can also pick up our goods on site",
-				"name": "Pickup"
-			}
-		},
-		"section_name": "Delivery Options"
-	},
-	"dismiss": "Abort",
-	"enter_website": "To the website",
-	"lang_code": "en",
-	"navbar": {
-		"dealer": "Dealer",
-		"imprint": "Imprint",
-		"privacy_policy": "Privacy Policy",
-		"shop": "Shop",
-		"shops": "Shops",
-		"terms": "Terms and conditions"
-	},
-	"no_description": "No description available.",
-	"shop": {
-		"close": "Close",
-		"close_text": "According to the opening hours this shop has just closed but can be reached by phone.",
-		"detail": "Detail",
-		"open": "Open",
-		"settings": "Settings"
-	}
+  "action": {
+    "call": "Call",
+    "close": "Close",
+    "detail": "Detail"
+  },
+  "back": "Back",
+  "back_to_start": "Back to start",
+  "components": {
+    "menu": {
+      "create": "Create menu",
+      "name": "Menu"
+    },
+    "productlist": {
+      "create": "Create productlist",
+      "name": "Productlist"
+    },
+    "type": {
+      "menu": "Menu",
+      "products": "Products"
+    }
+  },
+  "confirm": "Okay",
+  "contact_data": {
+    "facebook": "Facebook",
+    "full_address": "Full Address",
+    "instagram": "Instagram",
+    "intro": "Enter the address of your shop so others know where to find you.",
+    "optional": "Optional",
+    "phone_number": "Phone Number",
+    "prefix_and_number": "Prefix and Number",
+    "section_name": "Contact Data",
+    "website": "Website"
+  },
+  "continue": "Continue",
+  "delivery_options": {
+    "all_day": "Open all day long",
+    "days_long": {
+      "friday": "Friday",
+      "monday": "Monday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "thursday": "Thursday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday"
+    },
+    "days_short": {
+      "friday": "Fr",
+      "monday": "Mo",
+      "saturday": "Sa",
+      "sunday": "Su",
+      "thursday": "Th",
+      "tuesday": "Tu",
+      "wednesday": "We"
+    },
+    "offer_prefix": "I offer",
+    "offer_suffix": "",
+    "opening_times": "Opening Times",
+    "options": {
+      "local_delivery": {
+        "description": "We ensure that our customers receive their goods promptly",
+        "name": "Local Delivery"
+      },
+      "parcel": {
+        "description": "On request we also send the packages by letter and post",
+        "name": "Postal and parcel delivery"
+      },
+      "pickup": {
+        "description": "Customers can also pick up our goods on site",
+        "name": "Pickup"
+      }
+    },
+    "section_name": "Delivery Options"
+  },
+  "dismiss": "Abort",
+  "enter_website": "To the website",
+  "lang_code": "en",
+  "navbar": {
+    "dealer": "Dealer",
+    "imprint": "Imprint",
+    "privacy_policy": "Privacy Policy",
+    "shop": "Shop",
+    "shops": "Shops",
+    "terms": "Terms and conditions"
+  },
+  "no_description": "No description available.",
+  "shop": {
+    "close": "Close",
+    "close_text": "According to the opening hours this shop has just closed but can be reached by phone.",
+    "detail": "Detail",
+    "open": "Open",
+    "settings": "Settings"
+  }
 }

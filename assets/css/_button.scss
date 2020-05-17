@@ -80,3 +80,17 @@ button, .button {
     }
 
 }
+
+// Custom Buttons
+.arrow-l {
+  .icon {
+    @apply mr-1;
+  }
+  &:hover {
+    @apply text-secondary;
+    .icon {
+      @apply transition duration-300 ease-in-out;
+      transform: translate(-0.3rem);
+    }
+  }
+}

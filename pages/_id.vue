@@ -191,6 +191,14 @@
           </div>
         </div>
       </div>
+      <div v-if="shop.components.length" class="flex justify-end mt-3">
+        <n-link
+          :to="`/products?shopId=${shop.shopId}`"
+          class="button cta bg-tertiary"
+        >
+          {{ $t(`components.type.${shop.components[0]}`) }}
+        </n-link>
+      </div>
     </div>
   </div>
 </template>
@@ -251,19 +259,6 @@ export default {
       rgba(255, 255, 255, 0),
       theme('colors.primary')
     );
-  }
-}
-
-.arrow-l {
-  .icon {
-    @apply mr-1;
-  }
-  &:hover {
-    @apply text-secondary;
-    .icon {
-      @apply transition duration-300 ease-in-out;
-      transform: translate(-0.3rem);
-    }
   }
 }
 </style>
