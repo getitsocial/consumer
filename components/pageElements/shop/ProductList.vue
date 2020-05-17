@@ -13,7 +13,7 @@
       />
       <div class="flex items-center">
         <h3 class="mt-2 leading-snug">{{ article.name }}</h3>
-        <div class="text-light text-sm ml-auto mt-2">{{ article.price }} €</div>
+        <div class="text-light ml-auto mt-2">{{ article.price }} €</div>
       </div>
       <div
         v-if="article.description"

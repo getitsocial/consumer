@@ -89,6 +89,7 @@
     "close_text": "According to the opening hours this shop has just closed but can be reached by phone.",
     "detail": "Detail",
     "open": "Open",
-    "settings": "Settings"
+    "settings": "Settings",
+    "no_items": "No entries found"
   }
 }

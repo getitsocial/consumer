@@ -15,38 +15,46 @@
       <!-- Categories -->
       <category-list
         :categories="categories.rows"
-        :active-category="activeCategory"
+        :active-category="category"
         @load="loadArticles"
       />
 
       <product-list :articles="articles" />
 
-      <empty-content
-        v-if="categories.count === 0"
-        :content="$t('no_items')"
-        route="/category"
-        class="mt-5"
-      />
-
+      <empty-state v-if="categories.count === 0" />
       <!-- Articles -->
     </div>
   </div>
 </template>
 <script>
 import { isEmpty } from 'lodash'
-import EmptyContent from '~/components/elements/EmptyContent'
+import EmptyState from '~/components/elements/EmptyState'
 import ProductList from '~/components/pageElements/shop/ProductList'
 import CategoryList from '~/components/pageElements/shop/CategoryList'
 
 export default {
   name: 'Products',
   components: {
-    EmptyContent,
+    EmptyState,
     ProductList,
     CategoryList,
   },
 
   async asyncData({ $axios, query }) {
+    let categories
+    try {
+      categories = await $axios.$get('/api/categories/public', {
+        params: {
+          shopId: query.shopId,
+        },
+      })
+      if (!query.category) {
+        query.category = categories.rows[0]._id
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
     const {
       count,
       rows,
@@ -54,22 +62,7 @@ export default {
       shop,
     } = await $axios.$get('/api/articles/public', { params: query })
 
-    let activeCategory, categories
-    try {
-      categories = await $axios.$get('/api/categories/public', {
-        params: {
-          shopId: shop.shopId,
-        },
-      })
-      if (!activeCategory) {
-        activeCategory = categories.rows[0]._id
-      }
-      activeCategory = query.category
-    } catch (error) {
-      console.log(error)
-    }
-
-    return { count, articles: rows, shop, category, categories, activeCategory }
+    return { count, articles: rows, shop, category, categories }
   },
   data: () => ({
     isEmpty,
@@ -80,7 +73,6 @@ export default {
   watchQuery: ['category'],
   methods: {
     loadArticles(categoryId) {
-      this.activeCategory = categoryId
       this.$router.push({
         query: {
           ...this.$route.query,
@@ -95,7 +87,7 @@ export default {
 <style lang="scss">
 .article {
   &-grid {
-    @apply gap-5 mx-auto max-w-full;
+    @apply gap-10 mx-auto max-w-full;
     columns: 1;
     @screen sm {
       columns: 2;

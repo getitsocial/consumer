@@ -1,94 +1,95 @@
 {
-	"action": {
-		"call": "Anrufen",
-		"close": "Schließen",
-		"detail": "Detail"
-	},
-	"back": "Zurück",
-	"back_to_start": "Zurück zum Start",
-	"components": {
-		"menu": {
-			"create": "Menü erstellen",
-			"name": "Speisekarte"
-		},
-		"productlist": {
-			"create": "Produktliste erstellen",
-			"name": "Produktliste"
-		},
-		"type": {
-			"menu": "Speisekarte",
-			"products": "Produkte"
-		}
-	},
-	"confirm": "Okay",
-	"contact_data": {
-		"facebook": "Facebook",
-		"full_address": "Vollständige Adresse",
-		"instagram": "Instagram",
-		"intro": "Geben Sie die Adresse Ihres Shops ein, damit andere wissen, wo Sie zu finden sind.",
-		"optional": "Optional",
-		"phone_number": "Telefonnummer",
-		"prefix_and_number": "Präfix und Nummer",
-		"section_name": "Kontaktdaten",
-		"website": "Webseite"
-	},
-	"continue": "Fortsetzen",
-	"delivery_options": {
-		"all_day": "Den ganzen Tag geöffnet",
-		"days_long": {
-			"friday": "Freitag",
-			"monday": "Montag",
-			"saturday": "Samstag",
-			"sunday": "Sonntag",
-			"thursday": "Donnerstag",
-			"tuesday": "Dienstag",
-			"wednesday": "Mittwoch"
-		},
-		"days_short": {
-			"friday": "Fr",
-			"monday": "Mo",
-			"saturday": "SA",
-			"sunday": "So",
-			"thursday": "Do",
-			"tuesday": "Di",
-			"wednesday": "Mi"
-		},
-		"offer_prefix": "Ich biete",
-		"offer_suffix": "",
-		"opening_times": "Öffnungszeiten",
-		"options": {
-			"local_delivery": {
-				"description": "Wir sorgen dafür, dass unsere Kunden ihre Waren umgehend erhalten",
-				"name": "Lokale Lieferung"
-			},
-			"parcel": {
-				"description": "Auf Anfrage senden wir die Pakete auch per Brief und Post",
-				"name": "Post- und Paketzustellung"
-			},
-			"pickup": {
-				"description": "Kunden können unsere Waren auch vor Ort abholen",
-				"name": "Abholen"
-			}
-		},
-		"section_name": "Lieferoptionen"
-	},
-	"dismiss": "Abbrechen",
-	"enter_website": "Zur Website",
-	"lang_code": "en",
-	"navbar": {
-		"dealer": "Händler",
-		"imprint": "Impressum",
-		"privacy_policy": "Datenschutz",
-		"shop": "Geschäft",
-		"shops": "Geschäfte",
-		"terms": "Geschäftsbedingungen"
-	},
-	"no_description": "Keine Beschreibung verfügbar.",
-	"shop": {
-		"close": "Geschlossen",
-		"close_text": "Anhand den Öffnungszeiten hat dieser Shop gerade geschlossen ist aber eventuell telefonisch erreichbar.",
-		"detail": "Detail",
-		"open": "Geöffnet",
-		"settings": "die Einstellungen"
-	}
+  "action": {
+    "call": "Anrufen",
+    "close": "Schließen",
+    "detail": "Detail"
+  },
+  "back": "Zurück",
+  "back_to_start": "Zurück zum Start",
+  "components": {
+    "menu": {
+      "create": "Menü erstellen",
+      "name": "Speisekarte"
+    },
+    "productlist": {
+      "create": "Produktliste erstellen",
+      "name": "Produktliste"
+    },
+    "type": {
+      "menu": "Speisekarte",
+      "products": "Produkte"
+    }
+  },
+  "confirm": "Okay",
+  "contact_data": {
+    "facebook": "Facebook",
+    "full_address": "Vollständige Adresse",
+    "instagram": "Instagram",
+    "intro": "Geben Sie die Adresse Ihres Shops ein, damit andere wissen, wo Sie zu finden sind.",
+    "optional": "Optional",
+    "phone_number": "Telefonnummer",
+    "prefix_and_number": "Präfix und Nummer",
+    "section_name": "Kontaktdaten",
+    "website": "Webseite"
+  },
+  "continue": "Fortsetzen",
+  "delivery_options": {
+    "all_day": "Den ganzen Tag geöffnet",
+    "days_long": {
+      "friday": "Freitag",
+      "monday": "Montag",
+      "saturday": "Samstag",
+      "sunday": "Sonntag",
+      "thursday": "Donnerstag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch"
+    },
+    "days_short": {
+      "friday": "Fr",
+      "monday": "Mo",
+      "saturday": "SA",
+      "sunday": "So",
+      "thursday": "Do",
+      "tuesday": "Di",
+      "wednesday": "Mi"
+    },
+    "offer_prefix": "Ich biete",
+    "offer_suffix": "",
+    "opening_times": "Öffnungszeiten",
+    "options": {
+      "local_delivery": {
+        "description": "Wir sorgen dafür, dass unsere Kunden ihre Waren umgehend erhalten",
+        "name": "Lokale Lieferung"
+      },
+      "parcel": {
+        "description": "Auf Anfrage senden wir die Pakete auch per Brief und Post",
+        "name": "Post- und Paketzustellung"
+      },
+      "pickup": {
+        "description": "Kunden können unsere Waren auch vor Ort abholen",
+        "name": "Abholen"
+      }
+    },
+    "section_name": "Lieferoptionen"
+  },
+  "dismiss": "Abbrechen",
+  "enter_website": "Zur Website",
+  "lang_code": "en",
+  "navbar": {
+    "dealer": "Händler",
+    "imprint": "Impressum",
+    "privacy_policy": "Datenschutz",
+    "shop": "Geschäft",
+    "shops": "Geschäfte",
+    "terms": "Geschäftsbedingungen"
+  },
+  "no_description": "Keine Beschreibung verfügbar.",
+  "shop": {
+    "close": "Geschlossen",
+    "close_text": "Anhand den Öffnungszeiten hat dieser Shop gerade geschlossen ist aber eventuell telefonisch erreichbar.",
+    "detail": "Detail",
+    "open": "Geöffnet",
+    "settings": "die Einstellungen",
+    "no_items": "Keine Einträge gefunden"
+  }
 }
