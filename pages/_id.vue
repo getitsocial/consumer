@@ -237,16 +237,44 @@ export default {
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$store.state.locale,
+        },
+        {
+          hid: 'og:locale:alternate',
+          property: 'og:locale:alternate',
+          content: 'en_GB',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'www.getit.market',
+        },
+        {
+          hid: 'og:image',
           property: 'og:image',
           content: this.shop.picture.url,
         },
         {
+          hid: 'og:image:type',
           property: 'og:image:type',
           content: 'image/png',
         },
         {
+          hid: 'og:title',
           property: 'og:title',
           content: this.shop.name,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:title',
+          content: `${this.appUrl}/${this.shop.shopId}`,
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '574950416384081',
         },
       ],
     }

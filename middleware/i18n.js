@@ -26,7 +26,7 @@ export default function ({
       // Test Issue on meta tags
       // https://github.com/nuxt/nuxt.js/issues/2034
       if (req.headers['accept-language'] !== undefined) {
-        const locale =
+        locale =
           req.headers['accept-language']
             .split(',')[0]
             .split('-')[0]
