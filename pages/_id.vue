@@ -237,29 +237,16 @@ export default {
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          hid: 'description',
-          name: 'description',
-          content: this.shop.description,
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.shop.picture.url,
         },
         {
-          hid: 'og:image:type',
-          name: 'og:image:type',
+          property: 'og:image:type',
           content: 'image/png',
         },
         {
-          hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: this.shop.name,
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.shop.description,
         },
       ],
     }
