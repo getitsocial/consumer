@@ -15,12 +15,14 @@ export default function ({
   if (req) {
     if (route.name) {
       // Get locale from cookie or from useragend
-      const locale =
+      let locale = 'en'
+      locale =
         $cookies.get('locale') ||
         req.headers['accept-language']
           .split(',')[0]
           .toLocaleLowerCase()
-          .substring(0, 2)
+          .substring(0, 2) ||
+        'en'
 
       store.commit('setLang', locale)
       i18n.locale = store.state.locale
