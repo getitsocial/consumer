@@ -10,6 +10,13 @@ export default {
    ** Headers of the page
    */
   head: {
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, maximum-scale=1.0',
+      },
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
@@ -47,7 +54,7 @@ export default {
   /**
    * Customize the progress-bar color
    */
-  loading: { color: '#3fe19b' },
+  loading: { color: '#2F615E' },
 
   /**
    * PWA configuration
@@ -218,6 +225,12 @@ export default {
     title: 'get it! Marketplace',
     templateTitle: '%name% - %title%',
     description: 'Lokal einkaufen!',
+    og: {
+      title: '%name% - %title%',
+      url: 'https://getit.market',
+      image: 'https://getit.market/img/mockup.png',
+      description: 'Mit get it! kannst du lokal einkaufen.',
+    },
     // ...
   },
   /**
