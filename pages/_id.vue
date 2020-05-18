@@ -208,7 +208,7 @@ export default {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
       const og = {
         title: shop.name,
-        image: shop.picture.url,
+        // image: shop.picture.url,
         locale: store.state.locale,
       }
 
