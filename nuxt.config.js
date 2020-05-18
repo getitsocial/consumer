@@ -188,6 +188,8 @@ export default {
         },
       },
     ],
+    // https://github.com/TiagoDanin/Nuxt-SEO
+    'nuxt-seo',
     // Doc: https://github.com/Developmint/nuxt-webfontloader#readme
     'nuxt-webfontloader',
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/markdownit
@@ -220,6 +222,17 @@ export default {
       },
     ],
   ],
+  /**
+   ** SEO configuration
+   */
+  seo: {
+    // Module options
+    name: 'get it!',
+    title: 'get it! Marketplace',
+    templateTitle: '%name% - %title%',
+    description: 'Lokal einkaufen!',
+    // ...
+  },
   /**
    ** Markdown configuration
    */

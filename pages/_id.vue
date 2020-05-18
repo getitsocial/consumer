@@ -203,9 +203,22 @@ export default {
   components: {
     HereMap,
   },
-  async asyncData({ $axios, params, error }) {
+  async asyncData({ $axios, params, error, seo, store }) {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
+      console.log(store.state.locale)
+      seo({
+        name: shop.name,
+        title: 'lokal auf get it!',
+        templateTitle: '%name% - %title%',
+        description: 'Lokal einkaufen!',
+        openGraph: {
+          title: shop.name,
+          image: shop.picture.url,
+          locale: store.state.locale,
+        },
+      })
+
       return { shop }
     } catch (err) {
       error({ statusCode: 404, message: 'Shop not found' })
@@ -224,60 +237,13 @@ export default {
           title: 'get it!',
           text: 'Schau dir diesen Shop an',
           url: `${this.appUrl}/${this.shop.shopId}`,
+          description: 'Lokal auf www.getit.market',
         })
         resultPara.textContent = 'Geteilt!'
       } catch (error) {
         console.log(error)
       }
     },
-  },
-  head() {
-    return {
-      title: this.shop.name,
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        {
-          hid: 'og:locale',
-          property: 'og:locale',
-          content: this.$store.state.locale,
-        },
-        {
-          hid: 'og:locale:alternate',
-          property: 'og:locale:alternate',
-          content: 'en_GB',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'www.getit.market',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.shop.picture.url,
-        },
-        {
-          hid: 'og:image:type',
-          property: 'og:image:type',
-          content: 'image/png',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.shop.name,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:title',
-          content: `${this.appUrl}/${this.shop.shopId}`,
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '574950416384081',
-        },
-      ],
-    }
   },
 }
 </script>
