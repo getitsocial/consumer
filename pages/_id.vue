@@ -217,6 +217,9 @@ export default {
           image: shop.picture.url,
           locale: store.state.locale,
         },
+        fb: {
+          appId: '574950416384081',
+        },
       })
 
       return { shop }
