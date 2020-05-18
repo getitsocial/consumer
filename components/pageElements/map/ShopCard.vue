@@ -2,7 +2,7 @@
   <div class="shadow bg-white rounded-lg">
     <slot />
     <div
-      class="bg-cover h-48"
+      class="bg-cover bg-no-repeat bg-center h-48"
       :class="[hasDefaultSlot ? '' : 'rounded-t-lg']"
       :style="{
         backgroundImage: `url('${shop.picture.url}')`,
