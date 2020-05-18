@@ -206,17 +206,19 @@ export default {
   async asyncData({ $axios, params, error, seo, store }) {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
-      console.log(store.state.locale)
+      const og = {
+        title: shop.name,
+        image: shop.picture.url,
+        locale: store.state.locale,
+      }
+
       seo({
         name: shop.name,
         title: 'lokal auf get it!',
         templateTitle: '%name% - %title%',
         description: 'Lokal einkaufen!',
-        openGraph: {
-          title: shop.name,
-          image: shop.picture.url,
-          locale: store.state.locale,
-        },
+        openGraph: og,
+        og,
         fb: {
           appId: '574950416384081',
         },
