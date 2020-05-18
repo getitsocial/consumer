@@ -3,6 +3,7 @@
     <div
       v-for="article in articles"
       :key="article._id"
+      v-scroll-reveal.reset="{ delay: 50 }"
       class="article-item border-b py-2"
     >
       <img
@@ -13,7 +14,7 @@
         @error="(e) => (e.target.src = '/img/placeholder.png')"
       />
       <div class="flex items-center">
-        <h3 class="mt-2 leading-snug">{{ article.name }}</h3>
+        <h3 class="mt-2 leading-snug break-all">{{ article.name }}</h3>
         <div class="text-light ml-auto mt-2">{{ article.price }} €</div>
       </div>
       <div

@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-4xl mt-0 px-2 md:mt-20 mb-5 mb-12">
     <button class="arrow-l mt-3 icon-l" @click="$router.push('/list')">
-      <icon name="arrow-back-outline" /> {{ $t('back') }}
+      <icon name="arrow-back-outline" /> {{ $t('action.shop_overview') }}
     </button>
     <div
       class="hero-wrap h-48 my-3"
@@ -92,15 +92,7 @@
           <hr class="my-5" />
           <div v-html="shop.description"></div>
         </div>
-        <div v-if="shop.components.length">
-          <!--
-          <hr class="my-5" />
-          <products-component
-            :shop="shop"
-            :component-name="shop.components[0]"
-            @edit="showComponent = true"
-          />
-        --></div>
+        <div v-if="shop.components.length"></div>
         <div v-if="shop.contact" class="flex justify-end">
           <ul class="flex items-end">
             <li class="mx-2">
@@ -194,7 +186,7 @@
       <div v-if="shop.components.length" class="flex justify-end mt-3">
         <n-link
           :to="`/products?shopId=${shop.shopId}`"
-          class="button cta bg-tertiary"
+          class="button cta bg-tertiary w-full md:w-auto mx-8 md:mx-0"
         >
           {{ $t(`components.type.${shop.components[0]}`) }}
         </n-link>
@@ -204,21 +196,19 @@
 </template>
 <script>
 import HereMap from '~/components/elements/MapSvg'
-// import ProductsComponent from '~/components/pageElements/shop/Products'
 
 export default {
   name: 'Shop',
   middleware: 'authenticated',
   components: {
     HereMap,
-    // ProductsComponent,
   },
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, error }) {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
       return { shop }
-    } catch (error) {
-      console.log(error)
+    } catch (err) {
+      error({ statusCode: 404, message: 'Shop not found' })
     }
   },
   data: () => ({
@@ -240,6 +230,39 @@ export default {
         console.log(error)
       }
     },
+  },
+  head() {
+    return {
+      title: this.shop.name,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.shop.description,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.shop.picture.url,
+        },
+        {
+          hid: 'og:image:type',
+          name: 'og:image:type',
+          content: 'image/png',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.shop.name,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.shop.description,
+        },
+      ],
+    }
   },
 }
 </script>

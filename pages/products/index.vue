@@ -1,84 +1,87 @@
 <template>
   <div class="container md:mt-24">
-    <div v-if="!isEmpty(shop)" class="mb-3">
+    <div v-if="shopId" class="mb-3">
       <button
         class="arrow-l mt-3 icon-l p-0"
-        @click="$router.push(`/${shop.shopId}`)"
+        @click="$router.push(`/${shopId}`)"
       >
         <icon name="arrow-back-outline" /> {{ $t('back') }}
       </button>
     </div>
     <div class="card">
-      <!-- Headline -->
-      <h1 v-if="shop.components" class="flex md:mb-3">
-        {{ $t(`components.type.${shop.components[0]}`) }}
-      </h1>
+      <div class="flex flex-wrap justify-between items-baseline">
+        <h1 v-if="shop.components" class="flex">
+          {{ $t(`components.type.${shop.components[0]}`) }}
+        </h1>
+        <span
+          v-if="shop.name"
+          class="leading-snug font-bold text-sm select-none"
+          >{{ shop.name }}</span
+        >
+      </div>
       <!-- Categories -->
       <category-list
-        :categories="categories.rows"
-        :active-category="category"
+        :shop-id="shopId"
+        :active-category="activeCategory"
         :pending="pending"
         @loadArticles="loadArticles"
       />
+
       <!-- Articles -->
       <product-list :articles="articles" />
-      <!-- Empty State -->
+      <!-- Empty State
       <empty-state v-if="categories.count === 0" />
+      -->
     </div>
   </div>
 </template>
 <script>
 import { isEmpty } from 'lodash'
-import EmptyState from '~/components/elements/EmptyState'
+// import EmptyState from '~/components/elements/EmptyState'
 import ProductList from '~/components/pageElements/shop/ProductList'
 import CategoryList from '~/components/pageElements/shop/CategoryList'
 
 export default {
   name: 'Products',
   components: {
-    EmptyState,
+    // EmptyState,
     ProductList,
     CategoryList,
   },
-  async asyncData({ $axios, query }) {
-    let categories, pending
-    try {
-      categories = await $axios.$get('/api/categories/public', {
-        params: {
-          shopId: query.shopId,
-        },
-      })
-      if (!query.category) {
-        query.category = categories.rows[0]._id
-      }
-    } catch (error) {
-      console.log(error)
+  asyncData({ $axios, query }) {
+    return { shopId: query.shopId }
+  },
+  validate({ params, query, store }) {
+    // Validate, if query exist
+    if (!query.shopId) {
+      return false
     }
-    pending = query.category
-    const { rows, category, shop } = await $axios.$get('/api/articles/public', {
-      params: query,
-    })
-    pending = null
-    return { articles: rows, shop, category, categories, pending }
+    return true
   },
   data: () => ({
     isEmpty,
     pending: null,
-    categoriesQuery: {
+    activeCategory: null,
+    shop: {},
+    articles: [],
+    articlesQuery: {
       page: 1,
     },
   }),
-  watchQuery: true,
   methods: {
-    loadArticles(categoryId) {
-      this.pending = categoryId
-      this.$router.push({
-        query: {
-          ...this.$route.query,
-          shopId: this.shop.shopId,
-          category: categoryId,
-        },
-      })
+    async loadArticles(category) {
+      this.pending = category
+      try {
+        const { rows, shop } = await this.$axios.$get('/api/articles/public', {
+          params: { ...this.articlesQuery, shopId: this.shopId, category },
+        })
+        this.shop = shop
+        this.activeCategory = category
+        this.pending = null
+        this.articles = rows
+      } catch (error) {
+        this.pending = null
+      }
     },
   },
 }

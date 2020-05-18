@@ -96,7 +96,7 @@
             ><icon name="phone" /> {{ $t('action.call') }}</a
           >
         </span>
-        <span class="inline-flex ml-auto mt-5">
+        <span class="inline-flex ml-auto mt-3">
           <a :href="`/${shop.shopId}`" class="button primary icon-r">{{
             $t('action.detail')
           }}</a>
