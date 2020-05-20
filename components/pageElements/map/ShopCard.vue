@@ -37,7 +37,10 @@
             {{ shop.name }}
           </h3>
           <div>
-            <div v-if="shop.address.locationId" class="flex flex-col">
+            <div
+              v-if="shop.address.locationId"
+              class="flex flex-col text-light"
+            >
               <div>
                 {{ shop.address.street }} {{ shop.address.houseNumber }}
               </div>
@@ -59,37 +62,28 @@
         </div>
         <div
           v-if="shop.deliveryOptions"
-          class="flex flex-wrap justify-start select-none mt-3 text-right"
+          class="flex flex-wrap justify-start select-none text-right"
         >
           <div
             v-for="(deliveryOption, index) in shop.deliveryOptions"
             :key="index"
-            class="mt-2"
+            class="mr-3 my-4"
           >
-            <span
-              v-if="deliveryOption === 'LD'"
-              class="tag mr-1 whitespace-no-wrap"
-            >
-              Lokale Lieferung
+            <span v-if="deliveryOption === 'LD'">
+              <icon name="car-outline" width="23" height="23" />
             </span>
-            <span
-              v-if="deliveryOption === 'PU'"
-              class="tag mr-1 whitespace-no-wrap"
-            >
-              Abholung
+            <span v-if="deliveryOption === 'PU'">
+              <icon name="shopping-bag-outline" width="23" height="23" />
             </span>
-            <span
-              v-if="deliveryOption === 'MU'"
-              class="tag mr-1 whitespace-no-wrap"
-            >
-              Postversand
+            <span v-if="deliveryOption === 'MU'">
+              <icon name="cube-outline" width="23" height="23" />
             </span>
           </div>
           <div></div>
         </div>
       </div>
-      <div class="flex mt-5 border-t">
-        <span class="md:hidden inline-flex mt-5">
+      <div class="flex border-t">
+        <span class="mt-2">
           <a
             :href="`tel:${shop.contact.phone}`"
             class="button cta bg-tertiary icon-r"
