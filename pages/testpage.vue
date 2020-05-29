@@ -9,9 +9,9 @@ export default {
   asyncData({ seo }) {
     seo({
       name: 'Testpage',
-      title: 'lokal auf get it!',
+      title: 'abc',
       templateTitle: '%name% - %title%',
-      description: 'Lokal einkaufen!',
+      description: '123',
       og: {
         title: 'Testpage',
         image: 'shop.picture.url',
@@ -22,6 +22,7 @@ export default {
       },
     })
   },
+  layout: 'empty',
 }
 </script>
 
