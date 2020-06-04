@@ -227,7 +227,7 @@ export default {
     templateTitle: '%name% - %title%',
     description: 'Lokal einkaufen!',
     og: {
-      title: '%name% - %title%',
+      title: 'get it! Marketplace',
       url: 'https://getit.market',
       image: 'https://getit.market/img/mockup.png',
       description: 'Mit get it! kannst du lokal einkaufen.',

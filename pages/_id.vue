@@ -284,9 +284,19 @@ export default {
           content: 'website',
         },
         {
-          hid: 'fb:appId',
-          property: 'fb:appId',
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
           content: '574950416384081',
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: 'getit.market',
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$store.state.locale,
         },
       ],
     }
