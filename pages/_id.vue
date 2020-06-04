@@ -206,7 +206,7 @@ export default {
   async asyncData({ $axios, params, error, seo, store, route }) {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
-
+      /*
       seo({
         name: shop.name,
         title: 'lokal auf get it!',
@@ -225,6 +225,7 @@ export default {
           app_id: '574950416384081',
         },
       })
+      */
       return { shop }
     } catch (err) {
       console.error(err)
@@ -251,6 +252,58 @@ export default {
         console.log(error)
       }
     },
+  },
+  head() {
+    return {
+      title: `${this.shop.name} - lokal auf get it!`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.shop.picture.url,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.VUE_APP_URL + this.$router.currentRoute.path,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.shop.name} - lokal auf get it!`,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '574950416384081',
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: 'getit.market',
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$store.state.locale,
+        },
+      ],
+    }
   },
 }
 </script>

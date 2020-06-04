@@ -37,26 +37,6 @@ export default {
   async fetch({ store, params }) {
     await store.dispatch('getShops', params)
   },
-  asyncData({ store, route, seo }) {
-    seo({
-      name: 'get it!',
-      title: 'get it! Marketplace',
-      templateTitle: 'get it! Marketplace',
-      description: 'Lokal einkaufen!',
-      openGraph: {
-        title: 'get it! Marketplace',
-        description: 'Lokal einkaufen!',
-        type: 'website',
-        image: 'https://getit.market/img/mockup.png',
-        locale: store.state.locale,
-        site_name: process.env.VUE_APP_URL,
-        url: process.env.VUE_APP_URL + route.path,
-      },
-      facebook: {
-        app_id: '574950416384081',
-      },
-    })
-  },
   data: () => ({
     showDetail: false,
     selectedShop: {},
@@ -88,6 +68,58 @@ export default {
         console.log(error)
       }
     },
+  },
+  head() {
+    return {
+      title: 'get it! Marketplace',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://getit.market/img/mockup.png',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.VUE_APP_URL,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'get it! Marketplace',
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '574950416384081',
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: process.env.VUE_APP_URL,
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: this.$store.state.locale,
+        },
+      ],
+    }
   },
 }
 </script>
