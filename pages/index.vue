@@ -43,7 +43,7 @@ export default {
       title: 'get it! Marketplace',
       templateTitle: 'get it! Marketplace',
       description: 'Lokal einkaufen!',
-      og: {
+      openGraph: {
         title: 'get it! Marketplace',
         description: 'Lokal einkaufen!',
         type: 'website',
@@ -52,7 +52,7 @@ export default {
         site_name: process.env.VUE_APP_URL,
         url: process.env.VUE_APP_URL + route.path,
       },
-      fb: {
+      facebook: {
         app_id: '574950416384081',
       },
     })

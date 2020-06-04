@@ -212,7 +212,7 @@ export default {
         title: 'lokal auf get it!',
         templateTitle: '%name% - %title%',
         description: 'Lokal einkaufen!',
-        og: {
+        openGraph: {
           title: shop.name,
           description: 'Lokal einkaufen!',
           type: 'website',
@@ -221,7 +221,7 @@ export default {
           site_name: process.env.VUE_APP_URL,
           url: process.env.VUE_APP_URL + route.path,
         },
-        fb: {
+        facebook: {
           app_id: '574950416384081',
         },
       })
