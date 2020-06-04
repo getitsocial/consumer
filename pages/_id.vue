@@ -207,6 +207,7 @@ export default {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
 
+      /*
       seo({
         name: shop.name,
         title: 'lokal auf get it!',
@@ -221,7 +222,7 @@ export default {
           appId: '574950416384081',
         },
       })
-
+*/
       return { shop }
     } catch (err) {
       error({ statusCode: 404, message: 'Shop not found' })
@@ -247,6 +248,48 @@ export default {
         console.log(error)
       }
     },
+  },
+  head() {
+    return {
+      title: `${this.shop.name} - lokal auf get it!`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.shop.picture.url,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://getit-consumer-dev.herokuapp.com${this.$router.currentRoute.path}`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Lokal einkaufen!',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.shop.name} - lokal auf get it!`,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'fb:appId',
+          property: 'fb:appId',
+          content: '574950416384081',
+        },
+      ],
+    }
   },
 }
 </script>
