@@ -224,15 +224,20 @@ export default {
     // Module options
     name: 'get it!',
     title: 'get it! Marketplace',
-    templateTitle: '%name% - %title%',
+    templateTitle: 'get it! Marketplace',
     description: 'Lokal einkaufen!',
     og: {
       title: 'get it! Marketplace',
-      url: 'https://getit.market',
+      description: 'Lokal einkaufen!',
+      type: 'website',
       image: 'https://getit.market/img/mockup.png',
-      description: 'Mit get it! kannst du lokal einkaufen.',
+      locale: 'de',
+      site_name: process.env.VUE_APP_URL,
+      url: process.env.VUE_APP_URL,
     },
-    // ...
+    fb: {
+      app_id: '574950416384081',
+    },
   },
   /**
    ** Markdown configuration

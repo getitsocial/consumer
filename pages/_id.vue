@@ -203,11 +203,10 @@ export default {
   components: {
     HereMap,
   },
-  async asyncData({ $axios, params, error, seo, store }) {
+  async asyncData({ $axios, params, error, seo, store, route }) {
     try {
       const shop = await $axios.$get(`/api/shops/${params.id}`)
 
-      /*
       seo({
         name: shop.name,
         title: 'lokal auf get it!',
@@ -215,16 +214,20 @@ export default {
         description: 'Lokal einkaufen!',
         og: {
           title: shop.name,
+          description: 'Lokal einkaufen!',
+          type: 'website',
           image: shop.picture.url,
           locale: store.state.locale,
+          site_name: process.env.VUE_APP_URL,
+          url: process.env.VUE_APP_URL + route.path,
         },
         fb: {
-          appId: '574950416384081',
+          app_id: '574950416384081',
         },
       })
-*/
       return { shop }
     } catch (err) {
+      console.error(err)
       error({ statusCode: 404, message: 'Shop not found' })
     }
   },
@@ -248,58 +251,6 @@ export default {
         console.log(error)
       }
     },
-  },
-  head() {
-    return {
-      title: `${this.shop.name} - lokal auf get it!`,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Lokal einkaufen!',
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.shop.picture.url,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `https://getit-consumer-dev.herokuapp.com${this.$router.currentRoute.path}`,
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'Lokal einkaufen!',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: `${this.shop.name} - lokal auf get it!`,
-        },
-        {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: '574950416384081',
-        },
-        {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: 'getit.market',
-        },
-        {
-          hid: 'og:locale',
-          property: 'og:locale',
-          content: this.$store.state.locale,
-        },
-      ],
-    }
   },
 }
 </script>

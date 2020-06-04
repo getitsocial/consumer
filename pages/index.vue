@@ -37,6 +37,26 @@ export default {
   async fetch({ store, params }) {
     await store.dispatch('getShops', params)
   },
+  asyncData({ store, route, seo }) {
+    seo({
+      name: 'get it!',
+      title: 'get it! Marketplace',
+      templateTitle: 'get it! Marketplace',
+      description: 'Lokal einkaufen!',
+      og: {
+        title: 'get it! Marketplace',
+        description: 'Lokal einkaufen!',
+        type: 'website',
+        image: 'https://getit.market/img/mockup.png',
+        locale: store.state.locale,
+        site_name: process.env.VUE_APP_URL,
+        url: process.env.VUE_APP_URL + route.path,
+      },
+      fb: {
+        app_id: '574950416384081',
+      },
+    })
+  },
   data: () => ({
     showDetail: false,
     selectedShop: {},
