@@ -16,6 +16,51 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1, maximum-scale=1.0',
       },
+      {
+        hid: 'description',
+        property: 'description',
+        content: 'Lokal einkaufen!',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://getit.market/img/mockup.png',
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: process.env.VUE_APP_URL,
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Lokal einkaufen!',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'get it! Marketplace',
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'fb:app_id',
+        property: 'fb:app_id',
+        content: '574950416384081',
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: process.env.VUE_APP_URL,
+      },
+      {
+        hid: 'og:locale',
+        property: 'og:locale',
+        content: 'de',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
