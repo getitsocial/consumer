@@ -2,10 +2,9 @@
  * Layout
  */
 
-
 // Overwrites
-*{
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:focus {
     outline: none;
   }
@@ -14,22 +13,21 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 img {
-    -khtml-user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .container {
   color: #343434;
 }
-
 
 .mensory {
   &-grid {
@@ -45,26 +43,31 @@ img {
 }
 
 body {
-  @apply bg-grey;
+  @apply bg-primary-lightest;
 }
 
 // Typography
 
 a {
-    @apply text-primary transition ease-in-out duration-150;
+  @apply text-primary transition ease-in-out duration-150;
 
-    &:hover {
-        @apply text-secondary no-underline;
-    }
+  &:hover {
+    @apply text-secondary no-underline;
+  }
 
-    &:focus {
-        @apply text-secondary outline-none no-underline;
-    }
+  &:focus {
+    @apply text-secondary outline-none no-underline;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 800;
-    @apply select-none subpixel-antialiased;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  @apply select-none subpixel-antialiased;
 }
 
 h1 {

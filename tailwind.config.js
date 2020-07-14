@@ -37,6 +37,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      margin: {
+        36: '9rem',
+      },
       borderColor: (theme) => ({
         default: theme('colors.grey.lighter', 'currentColor'),
       }),
